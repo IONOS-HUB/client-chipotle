@@ -117,7 +117,7 @@ const Footer = () => {
                             aria-label="Contactar por WhatsApp"
                         >
                             <MessageCircle />
-                            Contactar por WhatsApp
+                            WhatsApp
                         </a>
                     </div>
                 </div>
