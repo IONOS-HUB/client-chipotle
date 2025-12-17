@@ -12,13 +12,14 @@ const Navbar = () => {
     const handleNavClick = (e, link) => {
         e.preventDefault();
         const href = link.href || link;
-        const sectionId = typeof href === 'string' ? href.replace('#', '') : '';
         
         // Si es un enlace al menú completo, navegar directamente
-        if (href === '/menu' || sectionId === 'menu-completo-page') {
+        if (href === '/menu' || href?.startsWith('/menu')) {
             navigate('/menu');
             return;
         }
+        
+        const sectionId = typeof href === 'string' ? href.replace('#', '') : '';
         
         if (isHome) {
             scrollToSection(sectionId);
@@ -45,7 +46,6 @@ const Navbar = () => {
             bgColor: "#DC2626", 
             textColor: "#fff",
             links: [
-                { label: "Menú", href: "#menu", ariaLabel: "Ver Menú" },
                 { label: "Menú Completo", href: "/menu", ariaLabel: "Ver Menú Completo" }
             ]
         },

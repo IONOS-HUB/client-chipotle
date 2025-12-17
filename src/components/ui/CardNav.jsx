@@ -1,42 +1,93 @@
-import { useLayoutEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { GoArrowUpRight } from 'react-icons/go';
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { gsap } from "gsap";
+import { GoArrowUpRight } from "react-icons/go";
 
 const CardNav = ({
   logo,
-  logoAlt = 'Logo',
+  logoAlt = "Logo",
   items,
-  className = '',
-  ease = 'power3.out',
-  baseColor = '#fff',
+  className = "",
+  ease = "power3.out",
+  baseColor = "#fff",
   menuColor,
   buttonBgColor,
   buttonTextColor,
   onLinkClick,
   onButtonClick,
-  brandName = 'El Chipotle'
+  brandName = "El Chipotle",
 }) => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef(null);
   const cardsRef = useRef([]);
   const tlRef = useRef(null);
+  const location = useLocation();
+
+  // Cerrar el menú cuando cambia la ruta y reinicializar timeline
+  useEffect(() => {
+    if (isExpanded || isHamburgerOpen) {
+      // Reset inmediato de estados
+      setIsHamburgerOpen(false);
+      setIsExpanded(false);
+      
+      // Reset visual inmediato
+      if (navRef.current) {
+        gsap.set(navRef.current, { height: 60, overflow: "hidden" });
+      }
+      if (cardsRef.current.length) {
+        gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+      }
+      
+      // Kill timeline anterior
+      if (tlRef.current) {
+        tlRef.current.kill();
+      }
+    }
+    
+    // Reinicializar timeline después de cambiar de página
+    const timer = setTimeout(() => {
+      if (navRef.current) {
+        const tl = createTimeline();
+        tlRef.current = tl;
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
+
+  const closeMenu = () => {
+    setIsHamburgerOpen(false);
+    const tl = tlRef.current;
+    if (tl) {
+      tl.eventCallback("onReverseComplete", () => {
+        setIsExpanded(false);
+      });
+      tl.reverse();
+    } else {
+      setIsExpanded(false);
+      if (navRef.current) {
+        gsap.set(navRef.current, { height: 60, overflow: "hidden" });
+      }
+    }
+  };
 
   const calculateHeight = () => {
     const navEl = navRef.current;
     if (!navEl) return 260;
 
-    const contentEl = navEl.querySelector('.card-nav-content');
+    const contentEl = navEl.querySelector(".card-nav-content");
     if (contentEl) {
       const wasVisible = contentEl.style.visibility;
       const wasPointerEvents = contentEl.style.pointerEvents;
       const wasPosition = contentEl.style.position;
       const wasHeight = contentEl.style.height;
 
-      contentEl.style.visibility = 'visible';
-      contentEl.style.pointerEvents = 'auto';
-      contentEl.style.position = 'static';
-      contentEl.style.height = 'auto';
+      contentEl.style.visibility = "visible";
+      contentEl.style.pointerEvents = "auto";
+      contentEl.style.position = "static";
+      contentEl.style.height = "auto";
 
       contentEl.offsetHeight;
 
@@ -58,7 +109,7 @@ const CardNav = ({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 60, overflow: 'hidden' });
+    gsap.set(navEl, { height: 60, overflow: "hidden" });
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
@@ -66,16 +117,20 @@ const CardNav = ({
     tl.to(navEl, {
       height: calculateHeight,
       duration: 0.4,
-      ease: ease || 'power3.out'
+      ease: ease || "power3.out",
     });
 
-    tl.to(cardsRef.current, { 
-      y: 0, 
-      opacity: 1, 
-      duration: 0.4, 
-      ease: ease || 'power3.out', 
-      stagger: 0.08 
-    }, '-=0.1');
+    tl.to(
+      cardsRef.current,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: ease || "power3.out",
+        stagger: 0.08,
+      },
+      "-=0.1"
+    );
 
     return tl;
   };
@@ -120,8 +175,8 @@ const CardNav = ({
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isExpanded]);
 
@@ -131,46 +186,60 @@ const CardNav = ({
       setIsExpanded(true);
       // Recreate timeline to ensure cards are in the refs
       setTimeout(() => {
+        // Asegurarse de que los refs estén actualizados
+        const navEl = navRef.current;
+        if (!navEl) return;
+        
         const tl = createTimeline();
-        tlRef.current = tl;
-        tl.play(0);
-      }, 0);
+        if (tl) {
+          tlRef.current = tl;
+          tl.play(0);
+        } else {
+          // Si no se puede crear el timeline, intentar de nuevo
+          setTimeout(() => {
+            const retryTl = createTimeline();
+            if (retryTl) {
+              tlRef.current = retryTl;
+              retryTl.play(0);
+            }
+          }, 50);
+        }
+      }, 10);
     } else {
-      setIsHamburgerOpen(false);
-      const tl = tlRef.current;
-      if (tl) {
-        tl.eventCallback('onReverseComplete', () => setIsExpanded(false));
-        tl.reverse();
-      } else {
-        setIsExpanded(false);
-      }
+      closeMenu();
     }
   };
 
-  const setCardRef = i => el => {
+  const setCardRef = (i) => (el) => {
     if (el) cardsRef.current[i] = el;
   };
 
   const handleLinkClick = (e, link) => {
     if (link.external) {
       // Don't prevent default for external links
-      toggleMenu();
+      closeMenu();
       return;
     }
     // If it's a route (starts with /), let the router handle it
-    if (link.href && link.href.startsWith('/')) {
+    if (link.href && link.href.startsWith("/")) {
       e.preventDefault();
-      if (onLinkClick) {
-        onLinkClick(e, link);
-      }
-      toggleMenu();
+      closeMenu();
+      // Small delay to allow menu to close before navigation
+      setTimeout(() => {
+        if (onLinkClick) {
+          onLinkClick(e, link);
+        }
+      }, 100);
       return;
     }
     e.preventDefault();
-    if (onLinkClick) {
-      onLinkClick(e, link);
-    }
-    toggleMenu();
+    closeMenu();
+    // Small delay to allow menu to close before navigation
+    setTimeout(() => {
+      if (onLinkClick) {
+        onLinkClick(e, link);
+      }
+    }, 100);
   };
 
   return (
@@ -179,51 +248,66 @@ const CardNav = ({
     >
       <nav
         ref={navRef}
-        className={`card-nav ${isExpanded ? 'open' : ''} block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height] backdrop-blur-md bg-white/80`}
-        style={{ backgroundColor: baseColor === '#fff' ? 'transparent' : baseColor }}
+        className={`card-nav ${
+          isExpanded ? "open" : ""
+        } block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height] backdrop-blur-md bg-white/80`}
+        style={{
+          backgroundColor: baseColor === "#fff" ? "transparent" : baseColor,
+        }}
       >
         <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 pl-[1.1rem] pr-[1.1rem] z-2">
-          <div className="logo-container flex items-center gap-2 order-1 md:order-0">
-            <img src={logo} alt={logoAlt} className="logo h-[32px] md:h-[36px]" />
-            <span className="font-mexican text-xl md:text-2xl text-white drop-shadow-md font-bold">
-              {brandName}
-            </span>
-          </div>
+          <a href="/">
+            <div className="logo-container flex items-center gap-2 order-1 md:order-0">
+              <img
+                src={logo}
+                alt={logoAlt}
+                className="logo h-[32px] md:h-[36px]"
+              />
+              <span className="font-mexican text-xl md:text-2xl text-white drop-shadow-md font-bold">
+                {brandName}
+              </span>
+            </div>
+          </a>
 
           <div className="flex items-center gap-4 order-2">
             <button
               type="button"
               className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 items-center h-full font-medium cursor-pointer transition-colors duration-300"
               style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
-              onClick={onButtonClick || ((e) => {
-                e.preventDefault();
-              })}
+              onClick={
+                onButtonClick ||
+                ((e) => {
+                  e.preventDefault();
+                })
+              }
             >
               Reservar
             </button>
 
             <div
-              className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''} group flex flex-col items-center justify-center cursor-pointer gap-[6px] w-8 h-8`}
+              className={`hamburger-menu ${
+                isHamburgerOpen ? "open" : ""
+              } group flex flex-col items-center justify-center cursor-pointer gap-[6px] w-8 h-8`}
               onClick={toggleMenu}
               role="button"
-              aria-label={isExpanded ? 'Close menu' : 'Open menu'}
+              aria-label={isExpanded ? "Close menu" : "Open menu"}
               tabIndex={0}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   toggleMenu();
                 }
               }}
-              style={{ color: menuColor || '#000' }}
+              style={{ color: menuColor || "#000" }}
             >
               <div
                 className={`hamburger-line w-[30px] h-[2px] bg-current transition-[transform,opacity,margin] duration-300 ease-linear origin-[50%_50%] ${
-                  isHamburgerOpen ? 'translate-y-[4px] rotate-45' : ''
+                  isHamburgerOpen ? "translate-y-[4px] rotate-45" : ""
                 } group-hover:opacity-75`}
               />
               <div
                 className={`hamburger-line w-[30px] h-[2px] bg-current transition-[transform,opacity,margin] duration-300 ease-linear origin-[50%_50%] ${
-                  isHamburgerOpen ? '-translate-y-[4px] -rotate-45' : ''
+                  isHamburgerOpen ? "-translate-y-[4px] -rotate-45" : ""
                 } group-hover:opacity-75`}
               />
             </div>
@@ -232,7 +316,9 @@ const CardNav = ({
 
         <div
           className={`card-nav-content absolute left-0 right-0 top-[60px] bottom-0 p-2 flex flex-col items-stretch gap-2 justify-start z-1 ${
-            isExpanded ? 'visible pointer-events-auto' : 'invisible pointer-events-none'
+            isExpanded
+              ? "visible pointer-events-auto"
+              : "invisible pointer-events-none"
           } md:flex-row md:items-end md:gap-[12px]`}
           aria-hidden={!isExpanded}
         >
@@ -254,9 +340,14 @@ const CardNav = ({
                     href={lnk.href}
                     aria-label={lnk.ariaLabel || lnk.label}
                     onClick={(e) => handleLinkClick(e, lnk)}
-                    {...(lnk.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    {...(lnk.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                   >
-                    <GoArrowUpRight className="nav-card-link-icon shrink-0" aria-hidden="true" />
+                    <GoArrowUpRight
+                      className="nav-card-link-icon shrink-0"
+                      aria-hidden="true"
+                    />
                     {lnk.label}
                   </a>
                 ))}
@@ -270,4 +361,3 @@ const CardNav = ({
 };
 
 export default CardNav;
-

@@ -30,6 +30,8 @@ const Footer = () => {
 
                     {/* Contact Info */}
                     <div className="text-center md:text-left">
+                        <a href="/">
+                        
                         <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
                             <div className="p-1 rounded-full">
                                 <img
@@ -41,6 +43,7 @@ const Footer = () => {
                             </div>
                             <span className="font-mexican text-3xl text-yellow-400">El Chipotle</span>
                         </div>
+                        </a>
                         <p className="text-gray-400 mb-8 leading-relaxed">
                             El mejor ambiente mexicano en la ciudad. Ven por la comida, quédate por la experiencia.
                         </p>

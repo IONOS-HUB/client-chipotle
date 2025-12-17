@@ -1,6 +1,24 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 
+// Styles for FAQ animation
+const styles = `
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+`;
+
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
@@ -33,6 +51,7 @@ const FAQ = () => {
 
     return (
         <section id="faq" className="py-20 bg-stone-100">
+            <style>{styles}</style>
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-12">
                     <div
@@ -80,16 +99,17 @@ const FAQ = () => {
                                 )}
                             </button>
 
-                            <div
-                                id={`faq-answer-${index}`}
-                                className={`px-6 transition-all duration-300 ease-in-out overflow-hidden ${openIndex === index ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
-                                role="region"
-                                aria-hidden={openIndex !== index}
-                            >
-                                <p className="text-stone-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </div>
+                            {openIndex === index && (
+                                <div
+                                    id={`faq-answer-${index}`}
+                                    className="px-6 pb-6 animate-fadeIn"
+                                    role="region"
+                                >
+                                    <p className="text-stone-600 leading-relaxed">
+                                        {faq.answer}
+                                    </p>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

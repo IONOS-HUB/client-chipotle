@@ -71,7 +71,7 @@ const Menu = () => {
 
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* Left Column - Cocina Mexicana */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 flex flex-col">
                             {MENU_ITEMS.find(cat => cat.category === "Cocina Mexicana")?.items.map((item) => (
                                 <div key={item.id} className="text-white">
                                     <div className="flex justify-between items-start mb-1">
@@ -87,13 +87,13 @@ const Menu = () => {
                                     </p>
                                 </div>
                             ))}
-                            <p className="text-white text-sm mt-6 italic">
+                            <p className="text-white text-sm mt-auto italic">
                                 * 50% de descuento en tu cumpleaños (Aplican condiciones)
                             </p>
                         </div>
 
                         {/* Right Column - Cocina Mexicana (continuación) */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 flex flex-col">
                             {/* Mostrar los últimos 10 items de Cocina Mexicana en la columna derecha */}
                             {MENU_ITEMS.find(cat => cat.category === "Cocina Mexicana")?.items.slice(10).map((item) => (
                                 <div key={item.id} className="text-white">
@@ -110,7 +110,7 @@ const Menu = () => {
                                     </p>
                                 </div>
                             ))}
-                            <p className="text-white text-sm mt-6 italic">
+                            <p className="text-white text-sm mt-auto italic">
                                 * Opción solo carne adicional $1
                             </p>
                         </div>
@@ -122,7 +122,7 @@ const Menu = () => {
                     {/* Segunda Sección: Cocina Americana, Carnes, Postres y Bebidas */}
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* Left Column */}
-                        <div className="space-y-12">
+                        <div className="space-y-12 flex flex-col">
                             {/* Cocina Americana */}
                             <div>
                                 <div className="flex items-center justify-center mb-6">
@@ -179,7 +179,7 @@ const Menu = () => {
                         </div>
 
                         {/* Right Column */}
-                        <div className="space-y-12">
+                        <div className="space-y-12 flex flex-col">
                             {/* Carnes */}
                             <div>
                                 <div className="flex items-center justify-center mb-6">
