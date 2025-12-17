@@ -157,6 +157,15 @@ const CardNav = ({
       toggleMenu();
       return;
     }
+    // If it's a route (starts with /), let the router handle it
+    if (link.href && link.href.startsWith('/')) {
+      e.preventDefault();
+      if (onLinkClick) {
+        onLinkClick(e, link);
+      }
+      toggleMenu();
+      return;
+    }
     e.preventDefault();
     if (onLinkClick) {
       onLinkClick(e, link);

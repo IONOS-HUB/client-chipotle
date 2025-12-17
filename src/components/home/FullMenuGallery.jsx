@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ZoomIn, X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import { MENU_IMAGES } from '../../utils/constants';
 
@@ -45,51 +46,22 @@ const FullMenuGallery = () => {
                         Explora Todas Nuestras Delicias
                     </h2>
                     <p
-                        className="text-gray-600 text-lg max-w-2xl mx-auto"
+                        className="text-gray-600 text-lg max-w-2xl mx-auto mb-8"
                         data-aos="fade-up"
                         data-aos-delay="200"
                     >
                         Haz clic en cualquier imagen para verla en detalle y descargarla
                     </p>
+                    <Link
+                        to="/menu"
+                        className="inline-block bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 uppercase tracking-wide text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                        data-aos="fade-up"
+                        data-aos-delay="300"
+                    >
+                        Ver Menú Completo Digital
+                    </Link>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    {MENU_IMAGES.map((image, index) => (
-                        <div
-                            key={index}
-                            className="group relative overflow-hidden rounded-2xl shadow-2xl border-4 border-stone-200 hover:border-red-500 transition-all duration-300 cursor-pointer"
-                            data-aos="zoom-in"
-                            data-aos-delay={index * 100}
-                            onClick={() => openLightbox(index)}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter' || e.key === ' ') {
-                                    e.preventDefault();
-                                    openLightbox(index);
-                                }
-                            }}
-                            aria-label={`Ver menú completo página ${index + 1}`}
-                        >
-                            <img
-                                src={image}
-                                alt={`Menú completo de El Chipotle - Página ${index + 1} con todos nuestros platillos, precios y especialidades`}
-                                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center gap-4">
-                                    <ZoomIn className="text-white" size={48} />
-                                    <span className="text-white font-bold text-lg bg-red-600 px-6 py-2 rounded-full">
-                                        Ver en Grande
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="absolute top-4 right-4 bg-yellow-500 text-red-900 font-bold px-4 py-2 rounded-full shadow-lg">
-                                Menú {index + 1}
-                            </div>
-                        </div>
-                    ))}
-                </div>
 
                 {/* Lightbox Modal */}
                 {selectedImage && (

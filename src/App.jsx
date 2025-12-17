@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer';
 import FloatingWhatsApp from './components/ui/FloatingWhatsApp';
 import ScrollToTop from './components/ui/ScrollToTop';
 import Home from './pages/Home';
+import Menu from './pages/Menu';
 
 const App = () => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
         </Routes>
         <Footer />
         <FloatingWhatsApp />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MENU_ITEMS, WHATSAPP_CONFIG } from '../utils/constants';
+import { MENU_ITEMS, WHATSAPP_CONFIG, IMAGES } from '../utils/constants';
 import SEO from '../components/seo/SEO';
 
 const Menu = () => {
@@ -7,67 +7,309 @@ const Menu = () => {
         <>
             <SEO 
                 title="Menú Completo - El Chipotle | Comida Mexicana y Americana"
-                description="Explora nuestro menú completo con tacos, burgers, parrilladas y más. Precios y descripciones de todos nuestros platillos. Pedidos por WhatsApp."
-                keywords="menú El Chipotle, carta restaurante, precios comida mexicana, tacos, burgers, parrillada, pedidos online"
+                description="Explora nuestro menú completo con tacos, burritos, enchiladas, carnes, postres y más. Precios y descripciones de todos nuestros platillos. Pedidos por WhatsApp."
+                keywords="menú El Chipotle, carta restaurante, precios comida mexicana, tacos, burritos, enchiladas, carnes, postres, pedidos online"
                 url="https://elchipotle.com/menu"
             />
-            <div className="pt-24 pb-20 bg-stone-50 min-h-screen">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
-                    <h1 className="font-mexican text-5xl md:text-7xl text-red-700 mb-4 drop-shadow-md">
-                        Nuestro Menú
-                    </h1>
-                    <div className="w-32 h-1 bg-yellow-400 mx-auto rounded-full mb-6"></div>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Explora nuestra selección de sabores auténticos. Desde lo clásico hasta lo más atrevido.
-                    </p>
-                </div>
-
-                {MENU_ITEMS.map((category, index) => (
-                    <div key={index} className="mb-20">
-                        <h2 className="font-mexican text-4xl text-stone-800 mb-10 border-b-4 border-yellow-400 inline-block pb-2">
-                            {category.category}
-                        </h2>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {category.items.map((item) => (
-                                <div key={item.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-stone-100">
-                                    <div className="h-64 overflow-hidden relative">
-                                        <img
-                                            src={item.image}
-                                            alt={`${item.name} - ${item.description} - Precio ${item.price} en El Chipotle`}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            <div className="pt-32 pb-20 bg-green-900 min-h-screen">
+                {/* Decorative Top Border - Papel Picado */}
+                <div className="h-24 bg-black relative overflow-hidden flex items-end justify-center pb-3">
+                    {/* String line */}
+                    <div className="absolute top-3 left-0 right-0 h-0.5 bg-gray-400 z-10"></div>
+                    <div className="flex items-end gap-0.5 z-20">
+                        {[...Array(20)].map((_, i) => {
+                            const colors = ['#14b8a6', '#a855f7', '#ec4899', '#f97316'];
+                            const color = colors[i % 4];
+                            return (
+                                <div key={i} className="relative" style={{ width: '70px', height: '55px' }}>
+                                    <svg width="70" height="55" viewBox="0 0 70 55" className="drop-shadow-lg">
+                                        {/* Banner shape with decorative bottom */}
+                                        <path
+                                            d="M 5 0 L 65 0 L 65 42 Q 65 48 60 48 L 35 55 L 10 48 Q 5 48 5 42 Z"
+                                            fill={color}
                                         />
-                                        {item.popular && (
-                                            <div className="absolute top-4 left-4 bg-yellow-400 text-red-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-                                                Popular
-                                            </div>
-                                        )}
-                                        <div className="absolute bottom-4 right-4 bg-red-600 text-white font-bold px-4 py-2 rounded-lg shadow-lg">
-                                            {item.price}
-                                        </div>
-                                    </div>
-                                    <div className="p-6">
-                                        <h3 className="font-mexican text-2xl text-stone-800 mb-2 group-hover:text-red-700 transition-colors">
-                                            {item.name}
-                                        </h3>
-                                        <p className="text-gray-500 mb-4 leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                        <button 
-                                            className="w-full py-3 border-2 border-red-100 text-red-600 font-bold rounded-xl hover:bg-red-50 hover:border-red-200 active:scale-95 transition-all duration-200 uppercase text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
-                                            onClick={() => window.open(WHATSAPP_CONFIG.getLink(), '_blank')}
-                                            aria-label={`Agregar ${item.name} al pedido`}
-                                        >
-                                            Agregar al Pedido
-                                        </button>
-                                    </div>
+                                        {/* Central star/flower design */}
+                                        <g transform="translate(35, 28)">
+                                            <path
+                                                d="M 0 -10 L 2.5 -3 L 10 -3 L 4 2 L 6 10 L 0 5 L -6 10 L -4 2 L -10 -3 L -2.5 -3 Z"
+                                                fill="white"
+                                                opacity="0.4"
+                                            />
+                                            <circle cx="0" cy="0" r="3" fill="white" opacity="0.5" />
+                                        </g>
+                                        {/* Decorative bottom fringe - scalloped */}
+                                        <path
+                                            d="M 10 48 Q 12 46 14 48 Q 16 46 18 48 Q 20 46 22 48 Q 24 46 26 48 Q 28 46 30 48 Q 32 46 34 48 Q 36 46 38 48 Q 40 46 42 48 Q 44 46 46 48 Q 48 46 50 48 Q 52 46 54 48 Q 56 46 58 48 Q 60 46 60 48"
+                                            stroke="white"
+                                            strokeWidth="1.5"
+                                            fill="none"
+                                            opacity="0.6"
+                                        />
+                                    </svg>
                                 </div>
-                            ))}
+                            );
+                        })}
+                    </div>
+                </div>
+                
+                <div className="container mx-auto px-4 max-w-5xl ">
+                    {/* Logo Section */}
+                    <div className="flex flex-col items-center mb-12">
+                        <div className="relative mb-6">
+                            <img 
+                                src={IMAGES.logo} 
+                                alt="El Chipotle Logo" 
+                                className="h-32 md:h-40 w-auto"
+                            />
+                        </div>
+                        <div className="flex items-center justify-center mb-8">
+                            <h1 className="font-mexican text-5xl md:text-6xl text-orange-500 text-center" style={{ fontStyle: 'italic' }}>
+                                Cocina Mexicana
+                            </h1>
                         </div>
                     </div>
-                ))}
+
+                    <div className="grid md:grid-cols-2 gap-12">
+                        {/* Left Column - Cocina Mexicana */}
+                        <div className="space-y-6">
+                            {MENU_ITEMS.find(cat => cat.category === "Cocina Mexicana")?.items.map((item) => (
+                                <div key={item.id} className="text-white">
+                                    <div className="flex justify-between items-start mb-1">
+                                        <h3 className="font-bold text-lg md:text-xl text-green-400 uppercase">
+                                            {item.name}
+                                        </h3>
+                                        <span className="font-bold text-xl md:text-2xl text-green-400 ml-4 whitespace-nowrap">
+                                            {item.price}
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            ))}
+                            <p className="text-white text-sm mt-6 italic">
+                                * 50% de descuento en tu cumpleaños (Aplican condiciones)
+                            </p>
+                        </div>
+
+                        {/* Right Column - Cocina Mexicana (continuación) */}
+                        <div className="space-y-6">
+                            {/* Mostrar los últimos 10 items de Cocina Mexicana en la columna derecha */}
+                            {MENU_ITEMS.find(cat => cat.category === "Cocina Mexicana")?.items.slice(10).map((item) => (
+                                <div key={item.id} className="text-white">
+                                    <div className="flex justify-between items-start mb-1">
+                                        <h3 className="font-bold text-lg md:text-xl text-green-400 uppercase">
+                                            {item.name}
+                                        </h3>
+                                        <span className="font-bold text-xl md:text-2xl text-green-400 ml-4 whitespace-nowrap">
+                                            {item.price}
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                                        {item.description}
+                                    </p>
+                                </div>
+                            ))}
+                            <p className="text-white text-sm mt-6 italic">
+                                * Opción solo carne adicional $1
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Separador */}
+                    <div className="my-16 border-t-2 border-green-700"></div>
+
+                    {/* Segunda Sección: Cocina Americana, Carnes, Postres y Bebidas */}
+                    <div className="grid md:grid-cols-2 gap-12">
+                        {/* Left Column */}
+                        <div className="space-y-12">
+                            {/* Cocina Americana */}
+                            <div>
+                                <div className="flex items-center justify-center mb-6">
+                                    <h2 className="font-mexican text-4xl md:text-5xl text-white text-center">
+                                        Cocina Americana
+                                    </h2>
+                                </div>
+                                <div className="space-y-4">
+                                    {MENU_ITEMS.find(cat => cat.category === "Cocina Americana")?.items.map((item) => (
+                                        <div key={item.id} className="text-white">
+                                            <div className="flex justify-between items-start mb-1">
+                                                <h3 className="font-bold text-lg md:text-xl text-white uppercase">
+                                                    {item.name}
+                                                </h3>
+                                                <span className="font-bold text-xl md:text-2xl text-white ml-4 whitespace-nowrap">
+                                                    {item.price}
+                                                </span>
+                                            </div>
+                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Bebidas sin alcohol */}
+                            <div>
+                                <div className="flex items-center justify-center mb-6">
+                                    <h2 className="font-mexican text-4xl md:text-5xl text-white text-center">
+                                        Bebidas sin alcohol
+                                    </h2>
+                                </div>
+                                <div className="space-y-4">
+                                    {MENU_ITEMS.find(cat => cat.category === "Bebidas sin Alcohol")?.items.map((item) => (
+                                        <div key={item.id} className="text-white">
+                                            <div className="flex justify-between items-start mb-1">
+                                                <h3 className="font-bold text-lg md:text-xl text-white uppercase">
+                                                    {item.name}
+                                                </h3>
+                                                <span className="font-bold text-xl md:text-2xl text-white ml-4 whitespace-nowrap">
+                                                    {item.price}
+                                                </span>
+                                            </div>
+                                            {item.description && (
+                                                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                    {item.description}
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right Column */}
+                        <div className="space-y-12">
+                            {/* Carnes */}
+                            <div>
+                                <div className="flex items-center justify-center mb-6">
+                                    <h2 className="font-mexican text-4xl md:text-5xl text-white text-center">
+                                        Carnes
+                                    </h2>
+                                </div>
+                                {MENU_ITEMS.find(cat => cat.category === "Carnes")?.note && (
+                                    <p className="text-gray-400 text-sm text-center mb-4 italic">
+                                        {MENU_ITEMS.find(cat => cat.category === "Carnes")?.note}
+                                    </p>
+                                )}
+                                <div className="space-y-4">
+                                    {MENU_ITEMS.find(cat => cat.category === "Carnes")?.items.map((item) => (
+                                        <div key={item.id} className="text-white">
+                                            <div className="flex justify-between items-start mb-1">
+                                                <h3 className="font-bold text-lg md:text-xl text-white uppercase">
+                                                    {item.name}
+                                                </h3>
+                                                <span className="font-bold text-xl md:text-2xl text-white ml-4 whitespace-nowrap">
+                                                    {item.price}
+                                                </span>
+                                            </div>
+                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Postres y Café */}
+                            <div>
+                                <div className="flex items-center justify-center mb-6">
+                                    <h2 className="font-mexican text-4xl md:text-5xl text-white text-center">
+                                        Postres y Café
+                                    </h2>
+                                </div>
+                                <div className="space-y-4">
+                                    {MENU_ITEMS.find(cat => cat.category === "Postres y Café")?.items.map((item) => (
+                                        <div key={item.id} className="text-white">
+                                            <div className="flex justify-between items-start mb-1">
+                                                <h3 className="font-bold text-lg md:text-xl text-white uppercase">
+                                                    {item.name}
+                                                </h3>
+                                                <span className="font-bold text-xl md:text-2xl text-white ml-4 whitespace-nowrap">
+                                                    {item.price}
+                                                </span>
+                                            </div>
+                                            {item.description && (
+                                                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                    {item.description}
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Bebidas con alcohol */}
+                            <div>
+                                <div className="flex items-center justify-center mb-6">
+                                    <h2 className="font-mexican text-4xl md:text-5xl text-white text-center">
+                                        Bebidas con alcohol
+                                    </h2>
+                                </div>
+                                <div className="space-y-4">
+                                    {MENU_ITEMS.find(cat => cat.category === "Bebidas con Alcohol")?.items.map((item) => (
+                                        <div key={item.id} className="text-white">
+                                            <div className="flex justify-between items-start mb-1">
+                                                <h3 className="font-bold text-lg md:text-xl text-white uppercase">
+                                                    {item.name}
+                                                </h3>
+                                                <span className="font-bold text-xl md:text-2xl text-white ml-4 whitespace-nowrap">
+                                                    {item.price}
+                                                </span>
+                                            </div>
+                                            {item.description && (
+                                                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                                                    {item.description}
+                                                </p>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Decorative Bottom Border - Papel Picado */}
+                <div className="h-24 bg-black relative overflow-hidden flex items-start justify-center pt-3 mt-8">
+                    {/* String line */}
+                    <div className="absolute bottom-3 left-0 right-0 h-0.5 bg-gray-400 z-10"></div>
+                    <div className="flex items-start gap-0.5 z-20">
+                        {[...Array(20)].map((_, i) => {
+                            const colors = ['#a855f7', '#3b82f6', '#22c55e', '#eab308', '#f97316', '#ef4444'];
+                            const color = colors[i % 6];
+                            return (
+                                <div key={i} className="relative" style={{ width: '70px', height: '55px' }}>
+                                    <svg width="70" height="55" viewBox="0 0 70 55" className="drop-shadow-lg">
+                                        {/* Banner shape with decorative top */}
+                                        <path
+                                            d="M 5 55 L 65 55 L 65 13 Q 65 7 60 7 L 35 0 L 10 7 Q 5 7 5 13 Z"
+                                            fill={color}
+                                        />
+                                        {/* Central star/flower design */}
+                                        <g transform="translate(35, 28)">
+                                            <path
+                                                d="M 0 -10 L 2.5 -3 L 10 -3 L 4 2 L 6 10 L 0 5 L -6 10 L -4 2 L -10 -3 L -2.5 -3 Z"
+                                                fill="white"
+                                                opacity="0.4"
+                                            />
+                                            <circle cx="0" cy="0" r="3" fill="white" opacity="0.5" />
+                                        </g>
+                                        {/* Decorative top fringe - scalloped */}
+                                        <path
+                                            d="M 10 7 Q 12 9 14 7 Q 16 9 18 7 Q 20 9 22 7 Q 24 9 26 7 Q 28 9 30 7 Q 32 9 34 7 Q 36 9 38 7 Q 40 9 42 7 Q 44 9 46 7 Q 48 9 50 7 Q 52 9 54 7 Q 56 9 58 7 Q 60 9 60 7"
+                                            stroke="white"
+                                            strokeWidth="1.5"
+                                            fill="none"
+                                            opacity="0.6"
+                                        />
+                                    </svg>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
-        </div>
         </>
     );
 };

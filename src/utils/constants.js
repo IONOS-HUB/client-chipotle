@@ -36,19 +36,99 @@ export const WHATSAPP_CONFIG = {
 
 export const MENU_ITEMS = [
     {
-        category: "Favoritos",
+        category: "Cocina Mexicana",
         items: [
-            { id: 1, name: "Chipotle Burger", price: "$12.50", description: "Carne angus, queso cheddar, tocino, aros de cebolla.", image: IMAGES.burger, popular: true },
-            { id: 2, name: "T-Bone Parrillero", price: "$24.00", description: "Corte de 400g al carbón con chimichurri.", image: IMAGES.steak, popular: true },
-            { id: 3, name: "Trío de Tacos", price: "$9.50", description: "Pastor, piña asada, cebolla y cilantro.", image: IMAGES.tacos, popular: true },
+            { id: 1, name: "Botanas con Guacamole", price: "$5.00", description: "Tortillas de maíz crocantes", image: IMAGES.tacos },
+            { id: 2, name: "Picadita Mexicana", price: "$10.00", description: "Tortillas crocantes - carne - pollo - chorizo mexicano o mixto - fréjol - queso - guacamole", image: IMAGES.tacos },
+            { id: 3, name: "El Cuate", price: "$9.50", description: "Arroz mexicano - carnitas a la plancha - flauta de pollo taco de queso - taco de chorizo - frijoles refritos guacamole - lechuga", image: IMAGES.combo },
+            { id: 4, name: "Burrito Chipotle XL", price: "$10.50", description: "Queso - fréjol - carne - pollo - chorizo mexicano o mixto lechuga - guacamole - tomate - queso - crema agria", image: IMAGES.burger },
+            { id: 5, name: "Burrito", price: "$7.50", description: "Tortilla de trigo - relleno de queso - puré de frejol-carne pollo - chorizo mexicano o mixto - lechuga - guacamole", image: IMAGES.burger },
+            { id: 6, name: "Burrito Mojado", price: "$7.75", description: "Tortilla de trigo relleno de queso puré de fréjol carne pollo chorizo mexicano o mixto lechuga guacamole mojado en jugo de enchilada", image: IMAGES.burger },
+            { id: 7, name: "Enchiladas", price: "$8.00", description: "Tortilla de maíz jugo de enchilada pollo carne chorizo mexicano o mixta - queso gratinado al horno", image: IMAGES.tacos },
+            { id: 8, name: "Flautas (4)", price: "$7.00", description: "Tortillas de maíz crocante relleno de pollo guacamole - lechuga - crema agria", image: IMAGES.tacos },
+            { id: 9, name: "Tacos (3)", price: "$7.50", description: "Tortilla de maíz suave rellenas de carne pollo chorizo mexicano o mixta - puré de frejol - guacamole", image: IMAGES.tacos },
+            { id: 10, name: "Nachos Rancheros", price: "$8.00", description: "Tortilla de maíz suave rellenas de carne pollo chorizo mexicano o mixta - puré de frejól - guacamole huevos fritos", image: IMAGES.interior },
+            { id: 11, name: "Nachos Chipotle", price: "$10.50", description: "Tortillas de maíz crocantes bañadas en jugo de enchilada - queso - carne - pollo - chorizo mexicano o míxta - puré de frejol - lechuga", image: IMAGES.interior },
+            { id: 12, name: "Nachos", price: "$7.00", description: "Tortillas de maíz crocantes bañadas en jugo de enchilada - queso - carne - pollo - chorizo mexicano o mixta - puré de frejol - guacamole", image: IMAGES.interior },
+            { id: 13, name: "Chilaquiles Rancheros", price: "$7.00", description: "Tortillas de maíz crocantes carne pollo - chorizo mexicano o mixta - queso - cubierta de lechuga jugo de enchilada - crema agría", image: IMAGES.tacos },
+            { id: 14, name: "Tostadas", price: "$7.00", description: "3 tortillas de maíz crocantes carne pollo o mixta puré de fréjol - queso - lechuga - crema agria", image: IMAGES.tacos },
+            { id: 15, name: "Quesadilla Clásica", price: "$6.00", description: "Tortillas de trigo rellenes de jamón queso acompañada de guacamole - lechuga - pico de gallo", image: IMAGES.tacos },
+            { id: 16, name: "Quesadilla Chipotle", price: "$8.00", description: "Tortillas de trigo rellenas de queso carne - pollo chorizo mexicano o mixta acompañada de guacamole lechuga - pico de gallo", image: IMAGES.tacos },
+            { id: 17, name: "Quesadilla de Camarón", price: "$8.50", description: "Tortillas de trigo rellenas de: queso camarón acompañada de guacamole lechuga - pico de gallo", image: IMAGES.tacos },
+            { id: 18, name: "Fajitas", price: "$9.00", description: "Verduras asadas - carne - pollo - camarón acompañada de tortilla - guacamole", image: IMAGES.steak },
+            { id: 19, name: "Pozole", price: "$5.00", description: "Mote - carne - pollo - lechuga - tortillas acompañadas de rabanos", image: IMAGES.combo },
+            { id: 20, name: "Sopa Azteca", price: "$5.00", description: "Queso - tortilla crocante - cebolla", image: IMAGES.combo },
         ]
     },
     {
-        category: "Especialidades",
+        category: "Cocina Americana",
         items: [
-            { id: 4, name: "Ensalada Especial", price: "$8.50", description: "Mix de lechugas, aguacate, nueces y aderezo de la casa.", image: IMAGES.salad, popular: false },
-            { id: 5, name: "Parrillada Familiar", price: "$35.00", description: "Para compartir: carne, pollo, chorizo y guarniciones.", image: IMAGES.combo, popular: false },
-            { id: 6, name: "Nachos Supremos", price: "$10.00", description: "Con queso fundido, jalapeños, guacamole y pico de gallo.", image: IMAGES.interior, popular: false },
+            { id: 21, name: "Filet Mignon", price: "$10.50", description: "Lomo fino envuelto en tocino, con salsa de champiñones, papas fritas y ensalada", image: IMAGES.steak },
+            { id: 22, name: "Lomo en Champiñones", price: "$9.50", description: "Lomo en salsa de champiñones, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 23, name: "Pollo o Lomo a la Plancha", price: "$8.50", description: "Pechuga de pollo o lomo a la plancha, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 24, name: "Pollo a la Diabla", price: "$8.50", description: "Pechuga de pollo a la plancha en salsa picante, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 25, name: "Pollo en Champiñones", price: "$9.50", description: "Pechuga de pollo a la plancha en salsa de champiñones, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 26, name: "Churrasco", price: "$9.00", description: "Lomo fino a la plancha, con arroz, papas fritas, huevos fritos y aguacate", image: IMAGES.steak },
+            { id: 27, name: "Chuleta a la Plancha", price: "$8.00", description: "Chuleta a la plancha, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 28, name: "Chuleta a la Diabla", price: "$8.50", description: "Chuleta a la plancha en salsa semi-picante, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 29, name: "Camarón al Ajillo", price: "$9.00", description: "Camarón en salsa semi-picante, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 30, name: "Camarón a la Plancha o a la Diabla", price: "$9.00", description: "Camarón a la plancha o a la diabla, con papas fritas y ensalada", image: IMAGES.steak },
+            { id: 31, name: "Hamburguesa Chipotle", price: "$8.00", description: "Hamburguesa con pan, carne, tomate, lechuga, cebolla, queso cheddar, jamón, salsa de tomate y mayonesa", image: IMAGES.burger },
+            { id: 32, name: "Ensalada Chipotle", price: "$6.00", description: "Ensalada con lechuga, pollo, pimiento, tomate, queso, champiñones, jamón, tortilla de maíz frita y vinagreta", image: IMAGES.salad },
+            { id: 33, name: "Alitas BBQ", price: "$8.00", description: "Deliciosas alitas de pollo BBQ, acompañadas de papas fritas y ensalada", image: IMAGES.combo },
+            { id: 34, name: "Salmón Chipotle", price: "$15.00", description: "Delicioso salmón a la plancha, acompañado de papas fritas y ensalada", image: IMAGES.steak },
+        ]
+    },
+    {
+        category: "Carnes",
+        note: "Tiempo de cocción: 20 a 25 min. Incluye: papas fritas - ensalada",
+        items: [
+            { id: 35, name: "Tomahawk", price: "$18.00", description: "Costilla gruesa con hueso con costillas anteriores y abundante grasa intermuscular e intramuscular", image: IMAGES.steak },
+            { id: 36, name: "Bife de Chorizo", price: "$14.00", description: "Corte argentino original, equilibrando carne, grasa y otros componentes", image: IMAGES.steak },
+            { id: 37, name: "Picaña", price: "$15.00", description: "Carne suave y jugosa con costra de grasa crujiente, tierna y roja por dentro", image: IMAGES.steak },
+            { id: 38, name: "Ribeye", price: "$10.00", description: "Carne fina con hueso con marmoleo significativo para ternura y sabor", image: IMAGES.steak },
+            { id: 39, name: "Costillas BBQ", price: "$12.00", description: "Costillas de cerdo tiernas bañadas en salsa BBQ", image: IMAGES.steak },
+        ]
+    },
+    {
+        category: "Postres y Café",
+        items: [
+            { id: 40, name: "Waffles", price: "$4.50", description: "Con Nutella y mermelada", image: IMAGES.combo },
+            { id: 41, name: "Torta del Día", price: "$3.50", description: "Deliciosa torta artesanal", image: IMAGES.combo },
+            { id: 42, name: "Helado de Paila", price: "$3.00", description: "Helado de paila artesanal", image: IMAGES.combo },
+            { id: 43, name: "Mocachino - Capuchino - Chococino", price: "$3.50", description: "Bebidas calientes con café y chocolate", image: IMAGES.combo },
+            { id: 44, name: "Americano - Expresso", price: "$2.50", description: "Café americano o expresso", image: IMAGES.combo },
+        ]
+    },
+    {
+        category: "Bebidas con Alcohol",
+        items: [
+            { id: 45, name: "Michelada Pilsener", price: "$3.00", description: "Cerveza Pilsener con limón y condimentos", image: IMAGES.combo },
+            { id: 46, name: "Michelada Club", price: "$3.50", description: "Cerveza Club con limón y condimentos", image: IMAGES.combo },
+            { id: 47, name: "Pilsener", price: "$2.50", description: "Cerveza Pilsener", image: IMAGES.combo },
+            { id: 48, name: "Corona", price: "$3.50", description: "Cerveza Corona", image: IMAGES.combo },
+            { id: 49, name: "Club", price: "$3.00", description: "Cerveza Club", image: IMAGES.combo },
+            { id: 50, name: "Submarino", price: "$5.00", description: "Bebida con cerveza y licor", image: IMAGES.combo },
+            { id: 51, name: "Tequila / Shot", price: "$4.50", description: "Tequila o shot", image: IMAGES.combo },
+            { id: 52, name: "Tequila Sunrise", price: "$5.00", description: "Cóctel con tequila, jugo de naranja y granadina", image: IMAGES.combo },
+            { id: 53, name: "Margarita", price: "$6.00", description: "Cóctel con tequila, triple sec y limón", image: IMAGES.combo },
+            { id: 54, name: "Mojito", price: "$6.00", description: "Cóctel con ron, menta, limón y soda", image: IMAGES.combo },
+            { id: 55, name: "Cuba Libre", price: "$6.00", description: "Ron con cola y limón", image: IMAGES.combo },
+            { id: 56, name: "Piña Colada", price: "$6.00", description: "Cóctel con ron, piña y coco", image: IMAGES.combo },
+            { id: 57, name: "Whisky", price: "$5.00", description: "Whisky", image: IMAGES.combo },
+            { id: 58, name: "Vino (Botella)", price: "$28.00", description: "Vino por botella", image: IMAGES.combo },
+            { id: 59, name: "Vino Hervido (Jarra)", price: "$16.00", description: "Vino hervido por jarra", image: IMAGES.combo },
+            { id: 60, name: "Vino (Copa)", price: "$5.00", description: "Vino por copa", image: IMAGES.combo },
+        ]
+    },
+    {
+        category: "Bebidas sin Alcohol",
+        items: [
+            { id: 61, name: "Aguas Frescas", price: "$1.80", description: "Aguas frescas: limonada de fresa, jamaica, horchata y tamarindo", image: IMAGES.combo },
+            { id: 62, name: "Té Helado", price: "$2.00", description: "Té helado refrescante", image: IMAGES.combo },
+            { id: 63, name: "Gaseosas", price: "$1.00", description: "Refrescos gaseosos", image: IMAGES.combo },
+            { id: 64, name: "Agua sin Gas", price: "$1.00", description: "Agua sin gas", image: IMAGES.combo },
+            { id: 65, name: "Agua con Gas", price: "$1.25", description: "Agua con gas", image: IMAGES.combo },
         ]
     }
 ];
