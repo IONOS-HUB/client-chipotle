@@ -4,30 +4,6 @@ import { ZoomIn, X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import { MENU_IMAGES } from '../../utils/constants';
 
 const FullMenuGallery = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const openLightbox = (index) => {
-        setCurrentIndex(index);
-        setSelectedImage(MENU_IMAGES[index]);
-    };
-
-    const closeLightbox = () => {
-        setSelectedImage(null);
-    };
-
-    const nextImage = () => {
-        const newIndex = (currentIndex + 1) % MENU_IMAGES.length;
-        setCurrentIndex(newIndex);
-        setSelectedImage(MENU_IMAGES[newIndex]);
-    };
-
-    const prevImage = () => {
-        const newIndex = (currentIndex - 1 + MENU_IMAGES.length) % MENU_IMAGES.length;
-        setCurrentIndex(newIndex);
-        setSelectedImage(MENU_IMAGES[newIndex]);
-    };
-
     return (
         <section id="menu-completo" className="py-24 bg-gradient-to-b from-stone-50 to-white">
             <div className="container mx-auto px-4">
@@ -50,7 +26,7 @@ const FullMenuGallery = () => {
                         data-aos="fade-up"
                         data-aos-delay="200"
                     >
-                        Haz clic en cualquier imagen para verla en detalle y descargarla
+                        Haz clic en cualquier imagen para verla en tamaño completo
                     </p>
                     <Link
                         to="/menu"

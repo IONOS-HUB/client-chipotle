@@ -23,7 +23,7 @@ const FAQ = () => {
         },
         {
             question: "¿Tienen parqueadero?",
-            answer: "Sí, contamos con parqueadero privado y seguro para nuestros clientes justo al lado del restaurante."
+            answer: "No contamos con parqueadero privado. Hay parqueadero público disponible en la zona."
         }
     ];
 
@@ -34,23 +34,23 @@ const FAQ = () => {
     };
 
     return (
-        <section id="faq" className="py-20 bg-stone-100">
+        <section id="faq" className="py-16 bg-stone-100">
             <div className="container mx-auto px-4 max-w-3xl">
-                <div className="text-center mb-12">
+                <div className="text-center mb-10">
                     <div
-                        className="inline-flex items-center justify-center p-3 bg-red-100 rounded-full mb-4"
+                        className="inline-flex items-center justify-center p-2 bg-red-100 rounded-full mb-3"
                         data-aos="zoom-in"
                     >
-                        <HelpCircle className="text-red-600 w-8 h-8" />
+                        <HelpCircle className="text-red-600 w-7 h-7" />
                     </div>
                     <h2
-                        className="font-mexican text-3xl md:text-5xl text-gray-900 mb-4"
+                        className="font-mexican text-3xl md:text-4xl text-gray-900 mb-3"
                         data-aos="fade-up"
                     >
                         Preguntas Frecuentes
                     </h2>
                     <p
-                        className="text-gray-600"
+                        className="text-gray-600 text-sm"
                         data-aos="fade-up"
                         data-aos-delay="100"
                     >

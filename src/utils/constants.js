@@ -1,12 +1,12 @@
 export const IMAGES = {
     logo: "/logo/logo.png",
     heroBg: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1469&auto=format&fit=crop",
-    steak: "/imgs/comida1.jpg",
-    burger: "/imgs/comida2.jpg",
-    tacos: "/imgs/comida3.jpg",
-    salad: "/imgs/comida4.jpg",
-    combo: "/imgs/comida5.jpg",
-    interior: "/imgs/comida6.jpg",
+    steak: "/imgs/comida1.webp",
+    burger: "/imgs/comida2.webp",
+    tacos: "/imgs/comida3.webp",
+    salad: "/imgs/comida4.webp",
+    combo: "/imgs/comida5.webp",
+    interior: "/imgs/comida6.webp",
 };
 
 export const MENU_IMAGES = [
@@ -16,9 +16,7 @@ export const MENU_IMAGES = [
 
 export const NAV_LINKS = [
     { name: 'Historia', href: '#historia' },
-    { name: 'Galería', href: '#galeria' },
     { name: 'Menú', href: '#menu' },
-    { name: 'Menú Completo', href: '#menu-completo' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Ubicación', href: '#ubicacion' },
 ];

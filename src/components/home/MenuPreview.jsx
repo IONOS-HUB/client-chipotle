@@ -4,14 +4,14 @@ import { IMAGES } from '../../utils/constants';
 
 const MenuPreview = () => {
     return (
-        <section id="menu" className="py-24 bg-stone-50">
+        <section id="menu" className="py-20 bg-stone-50">
             <div className="container mx-auto px-4">
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <span className="text-red-500 font-bold tracking-widest uppercase mb-2 block" data-aos="fade-up">Nuestro Menú</span>
-                    <h2 className="font-mexican text-4xl md:text-6xl text-gray-900" data-aos="fade-up" data-aos-delay="100">Favoritos de la Casa</h2>
+                    <h2 className="font-mexican text-3xl md:text-5xl text-gray-900" data-aos="fade-up" data-aos-delay="100">Favoritos de la Casa</h2>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-10">
+                <div className="grid md:grid-cols-3 gap-8">
                     {/* Menu Card 1 */}
                     <div
                         className="group bg-white rounded-3xl shadow-lg overflow-hidden border border-stone-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
@@ -36,7 +36,7 @@ const MenuPreview = () => {
 
                     {/* Menu Card 2 */}
                     <div
-                        className="group bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-100 hover:shadow-2xl transition-all duration-300 transform md:-translate-y-8 relative z-10"
+                        className="group bg-white rounded-3xl shadow-xl overflow-hidden border border-stone-100 hover:shadow-2xl transition-all duration-300 transform md:-translate-y-6 relative z-10"
                         data-aos="fade-up"
                         data-aos-delay="300"
                     >
