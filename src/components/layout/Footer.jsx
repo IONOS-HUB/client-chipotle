@@ -34,7 +34,7 @@ const Footer = () => {
                             <div className="bg-white p-1 rounded-full">
                                 <img
                                     src={IMAGES.logo}
-                                    alt="Logo"
+                                    alt="Logo El Chipotle"
                                     className="h-14 w-14 object-contain rounded-full"
                                     onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<span class="text-xl font-bold text-red-700 p-2">EC</span>' }}
                                 />

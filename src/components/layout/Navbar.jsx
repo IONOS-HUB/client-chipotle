@@ -25,7 +25,7 @@ const Navbar = () => {
                     <div className="h-12 w-12 rounded-full border-2 border-yellow-400 bg-white flex items-center justify-center overflow-hidden transition-transform group-hover:scale-110">
                         <img
                             src={IMAGES.logo}
-                            alt="Logo"
+                            alt="Logo El Chipotle"
                             className="h-full w-full object-contain"
                             onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<span class="text-xs font-bold text-red-700">EC</span>' }}
                         />

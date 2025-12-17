@@ -64,7 +64,7 @@ const FullMenuGallery = () => {
                         >
                             <img
                                 src={image}
-                                alt={`Menú ${index + 1}`}
+                                alt={`Menú completo de El Chipotle - Página ${index + 1} con todos nuestros platillos, precios y especialidades`}
                                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
@@ -115,7 +115,7 @@ const FullMenuGallery = () => {
                         <div className="relative max-w-6xl max-h-[90vh] w-full" onClick={(e) => e.stopPropagation()}>
                             <img
                                 src={selectedImage}
-                                alt="Menú ampliado"
+                                alt={`Menú completo de El Chipotle - Vista ampliada página ${currentIndex + 1}`}
                                 className="w-full h-full object-contain rounded-lg"
                             />
                             <a

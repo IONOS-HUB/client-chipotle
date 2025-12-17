@@ -19,7 +19,7 @@ const MenuPreview = () => {
                         data-aos-delay="200"
                     >
                         <div className="h-64 overflow-hidden relative">
-                            <img src={IMAGES.burger} alt="Burger" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img src={IMAGES.burger} alt="Tomahawk - Corte de carne importado de 400g asado al carbón de El Chipotle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-bold text-red-600 shadow-sm">$18.00</div>
                         </div>
                         <div className="p-8">
@@ -39,7 +39,7 @@ const MenuPreview = () => {
                     >
                         <div className="absolute top-0 left-0 w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-red-900 text-xs font-bold px-3 py-2 text-center uppercase tracking-widest z-20">★ El Más Vendido ★</div>
                         <div className="h-64 overflow-hidden relative mt-8">
-                            <img src={IMAGES.steak} alt="Steak" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img src={IMAGES.steak} alt="Fajita de carne o pollo con pimientos y cebolla, servida con tortillas y guacamole" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg font-bold shadow-lg">$7.00</div>
                         </div>
                         <div className="p-8">
@@ -58,7 +58,7 @@ const MenuPreview = () => {
                         data-aos-delay="400"
                     >
                         <div className="h-64 overflow-hidden relative">
-                            <img src={IMAGES.combo} alt="Tacos" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            <img src={IMAGES.combo} alt="Ensaladas frescas de El Chipotle con lechugas mixtas, aderezo ranch y pollo a la parrilla" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-bold text-red-600 shadow-sm">$4.00</div>
                         </div>
                         <div className="p-8">

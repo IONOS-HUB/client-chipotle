@@ -1,9 +1,17 @@
 import React from 'react';
 import { MENU_ITEMS } from '../utils/constants';
+import SEO from '../components/seo/SEO';
 
 const Menu = () => {
     return (
-        <div className="pt-24 pb-20 bg-stone-50 min-h-screen">
+        <>
+            <SEO 
+                title="Menú Completo - El Chipotle | Comida Mexicana y Americana"
+                description="Explora nuestro menú completo con tacos, burgers, parrilladas y más. Precios y descripciones de todos nuestros platillos. Pedidos por WhatsApp."
+                keywords="menú El Chipotle, carta restaurante, precios comida mexicana, tacos, burgers, parrillada, pedidos online"
+                url="https://elchipotle.com/menu"
+            />
+            <div className="pt-24 pb-20 bg-stone-50 min-h-screen">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <h1 className="font-mexican text-5xl md:text-7xl text-red-700 mb-4 drop-shadow-md">
@@ -26,7 +34,7 @@ const Menu = () => {
                                     <div className="h-64 overflow-hidden relative">
                                         <img
                                             src={item.image}
-                                            alt={item.name}
+                                            alt={`${item.name} - ${item.description} - Precio ${item.price} en El Chipotle`}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                         {item.popular && (
@@ -56,6 +64,7 @@ const Menu = () => {
                 ))}
             </div>
         </div>
+        </>
     );
 };
 
