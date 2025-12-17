@@ -92,14 +92,14 @@ const Footer = () => {
                         <h3 className="font-mexican text-2xl text-white mb-8">Síguenos</h3>
                         <div className="flex gap-4 mb-8">
                             <a 
-                                href="#" 
+                                href="https://www.instagram.com/elchipotle_/" 
                                 className="bg-stone-800 p-4 rounded-full hover:bg-red-600 active:scale-95 transition-all hover:-translate-y-1 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                 aria-label="Síguenos en Instagram"
                             >
                                 <Instagram size={24} />
                             </a>
                             <a 
-                                href="#" 
+                                href="https://www.facebook.com/chipotleibarra?locale=es_LA" 
                                 className="bg-stone-800 p-4 rounded-full hover:bg-blue-600 active:scale-95 transition-all hover:-translate-y-1 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                 aria-label="Síguenos en Facebook"
                             >
@@ -120,7 +120,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-stone-800 pt-8 text-center text-stone-500 text-sm">
-                    <p>&copy; 2024 El Chipotle. Todos los derechos reservados. Diseñado con sabor 🌶️</p>
+                    <p>&copy; 2025 El Chipotle. Todos los derechos reservados. Diseñado con sabor 🌶️</p>
                 </div>
             </div>
         </footer>
