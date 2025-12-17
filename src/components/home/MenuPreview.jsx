@@ -25,7 +25,10 @@ const MenuPreview = () => {
                         <div className="p-8">
                             <h3 className="font-mexican text-2xl text-stone-800 mb-2 group-hover:text-red-600 transition-colors">Tomahowk</h3>
                             <p className="text-gray-500 mb-6 text-sm leading-relaxed">Corte importado de 400g, asado al carbón, bañado en chimichurri de la casa y acompañado de papas rústicas doradas.</p>
-                            <Link to="/menu" className="block w-full text-center py-3 border-2 border-red-500 text-red-500 font-bold rounded-xl hover:bg-red-50 transition-colors uppercase tracking-wide text-sm">
+                            <Link 
+                                to="/menu" 
+                                className="block w-full text-center py-3 border-2 border-red-500 text-red-500 font-bold rounded-xl hover:bg-red-50 active:scale-95 transition-all duration-200 uppercase tracking-wide text-sm focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                            >
                                 Ver Detalles
                             </Link>
                         </div>
@@ -45,7 +48,10 @@ const MenuPreview = () => {
                         <div className="p-8">
                             <h3 className="font-mexican text-3xl text-stone-800 mb-2 group-hover:text-red-600 transition-colors">Fajita</h3>
                             <p className="text-gray-500 mb-6 text-sm leading-relaxed">Tiernas tiras de carne o pollo marinadas, salteadas con pimientos y cebolla, servidas con tortillas calientes y guacamole.</p>
-                            <Link to="/menu" className="block w-full text-center py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 transition-colors shadow-lg uppercase tracking-wide text-sm">
+                            <Link 
+                                to="/menu" 
+                                className="block w-full text-center py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl uppercase tracking-wide text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                            >
                                 Ordenar Ahora
                             </Link>
                         </div>
@@ -64,7 +70,10 @@ const MenuPreview = () => {
                         <div className="p-8">
                             <h3 className="font-mexican text-2xl text-stone-800 mb-2 group-hover:text-red-600 transition-colors">Ensaladas</h3>
                             <p className="text-gray-500 mb-6 text-sm leading-relaxed">Frescas lechugas mixtas, aderezo ranch de la casa, crutones artesanales, queso parmesano y pollo a la parrilla.</p>
-                            <Link to="/menu" className="block w-full text-center py-3 border-2 border-red-500 text-red-500 font-bold rounded-xl hover:bg-red-50 transition-colors uppercase tracking-wide text-sm">
+                            <Link 
+                                to="/menu" 
+                                className="block w-full text-center py-3 border-2 border-red-500 text-red-500 font-bold rounded-xl hover:bg-red-50 active:scale-95 transition-all duration-200 uppercase tracking-wide text-sm focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                            >
                                 Ver Detalles
                             </Link>
                         </div>

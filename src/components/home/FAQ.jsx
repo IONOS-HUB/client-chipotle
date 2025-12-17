@@ -65,8 +65,10 @@ const FAQ = () => {
                             data-aos-delay={200 + (index * 100)}
                         >
                             <button
-                                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
+                                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-inset rounded-t-2xl transition-all hover:bg-stone-50"
                                 onClick={() => toggleFAQ(index)}
+                                aria-expanded={openIndex === index}
+                                aria-controls={`faq-answer-${index}`}
                             >
                                 <span className={`font-bold text-lg ${openIndex === index ? 'text-red-700' : 'text-stone-800'}`}>
                                     {faq.question}
@@ -79,7 +81,10 @@ const FAQ = () => {
                             </button>
 
                             <div
+                                id={`faq-answer-${index}`}
                                 className={`px-6 transition-all duration-300 ease-in-out overflow-hidden ${openIndex === index ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
+                                role="region"
+                                aria-hidden={openIndex !== index}
                             >
                                 <p className="text-stone-600 leading-relaxed">
                                     {faq.answer}

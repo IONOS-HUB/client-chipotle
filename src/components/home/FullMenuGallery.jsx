@@ -61,6 +61,15 @@ const FullMenuGallery = () => {
                             data-aos="zoom-in"
                             data-aos-delay={index * 100}
                             onClick={() => openLightbox(index)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    openLightbox(index);
+                                }
+                            }}
+                            aria-label={`Ver menú completo página ${index + 1}`}
                         >
                             <img
                                 src={image}
@@ -89,8 +98,9 @@ const FullMenuGallery = () => {
                         onClick={closeLightbox}
                     >
                         <button
-                            className="absolute top-4 right-4 text-white hover:text-red-500 transition-colors z-10"
+                            className="absolute top-4 right-4 text-white hover:text-red-500 active:scale-95 transition-all z-10 p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                             onClick={closeLightbox}
+                            aria-label="Cerrar menú"
                         >
                             <X size={40} />
                         </button>
@@ -98,14 +108,16 @@ const FullMenuGallery = () => {
                         {MENU_IMAGES.length > 1 && (
                             <>
                                 <button
-                                    className="absolute left-4 text-white hover:text-yellow-400 transition-colors z-10"
+                                    className="absolute left-4 text-white hover:text-yellow-400 active:scale-95 transition-all z-10 p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                     onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                                    aria-label="Imagen anterior"
                                 >
                                     <ChevronLeft size={48} />
                                 </button>
                                 <button
-                                    className="absolute right-4 text-white hover:text-yellow-400 transition-colors z-10"
+                                    className="absolute right-4 text-white hover:text-yellow-400 active:scale-95 transition-all z-10 p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                     onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                                    aria-label="Imagen siguiente"
                                 >
                                     <ChevronRight size={48} />
                                 </button>
@@ -121,8 +133,9 @@ const FullMenuGallery = () => {
                             <a
                                 href={selectedImage}
                                 download={`menu-el-chipotle-${currentIndex + 1}.png`}
-                                className="absolute bottom-4 right-4 bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg transition-colors"
+                                className="absolute bottom-4 right-4 bg-green-600 hover:bg-green-500 active:scale-95 text-white font-bold px-6 py-3 rounded-full flex items-center gap-2 shadow-lg hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
                                 onClick={(e) => e.stopPropagation()}
+                                aria-label="Descargar menú"
                             >
                                 <Download size={20} />
                                 Descargar

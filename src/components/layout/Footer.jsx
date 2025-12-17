@@ -31,7 +31,7 @@ const Footer = () => {
                     {/* Contact Info */}
                     <div className="text-center md:text-left">
                         <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
-                            <div className="bg-white p-1 rounded-full">
+                            <div className="p-1 rounded-full">
                                 <img
                                     src={IMAGES.logo}
                                     alt="Logo El Chipotle"
@@ -91,10 +91,18 @@ const Footer = () => {
                     <div className="text-center md:text-right flex flex-col items-center md:items-end">
                         <h3 className="font-mexican text-2xl text-white mb-8">Síguenos</h3>
                         <div className="flex gap-4 mb-8">
-                            <a href="#" className="bg-stone-800 p-4 rounded-full hover:bg-red-600 transition-all hover:-translate-y-1 text-white shadow-lg">
+                            <a 
+                                href="#" 
+                                className="bg-stone-800 p-4 rounded-full hover:bg-red-600 active:scale-95 transition-all hover:-translate-y-1 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                aria-label="Síguenos en Instagram"
+                            >
                                 <Instagram size={24} />
                             </a>
-                            <a href="#" className="bg-stone-800 p-4 rounded-full hover:bg-blue-600 transition-all hover:-translate-y-1 text-white shadow-lg">
+                            <a 
+                                href="#" 
+                                className="bg-stone-800 p-4 rounded-full hover:bg-blue-600 active:scale-95 transition-all hover:-translate-y-1 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                                aria-label="Síguenos en Facebook"
+                            >
                                 <Facebook size={24} />
                             </a>
                         </div>
@@ -102,7 +110,8 @@ const Footer = () => {
                             href={WHATSAPP_CONFIG.getLink()}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg animate-pulse hover:animate-none hover:scale-105"
+                            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 active:scale-95 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl animate-pulse hover:animate-none hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                            aria-label="Contactar por WhatsApp"
                         >
                             <MessageCircle />
                             Contactar por WhatsApp

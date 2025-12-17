@@ -79,7 +79,13 @@ const Gallery = () => {
                             <h3 className="font-mexican text-3xl text-red-900 mb-1">¿Se te antojó?</h3>
                             <p className="text-red-800 font-medium">No te quedes con las ganas. ¡Estamos listos para atenderte!</p>
                         </div>
-                        <a href={WHATSAPP_CONFIG.getLink()} target="_blank" rel="noopener noreferrer" className="inline-block bg-red-700 text-white font-bold px-8 py-3 rounded-full hover:bg-red-800 transition-colors shadow-lg">
+                        <a 
+                            href={WHATSAPP_CONFIG.getLink()} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="inline-block bg-red-700 text-white font-bold px-8 py-3 rounded-full hover:bg-red-800 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                            aria-label="Pedir ahora por WhatsApp"
+                        >
                             ¡Pedir Ahora!
                         </a>
                     </div>

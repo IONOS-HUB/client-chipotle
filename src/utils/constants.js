@@ -1,5 +1,5 @@
 export const IMAGES = {
-    logo: "/logo/logo.jpg",
+    logo: "/logo/logo.png",
     heroBg: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1469&auto=format&fit=crop",
     steak: "/imgs/comida1.jpg",
     burger: "/imgs/comida2.jpg",

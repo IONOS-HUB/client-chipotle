@@ -1,5 +1,5 @@
 import React from 'react';
-import { MENU_ITEMS } from '../utils/constants';
+import { MENU_ITEMS, WHATSAPP_CONFIG } from '../utils/constants';
 import SEO from '../components/seo/SEO';
 
 const Menu = () => {
@@ -53,7 +53,11 @@ const Menu = () => {
                                         <p className="text-gray-500 mb-4 leading-relaxed">
                                             {item.description}
                                         </p>
-                                        <button className="w-full py-3 border-2 border-red-100 text-red-600 font-bold rounded-xl hover:bg-red-50 hover:border-red-200 transition-colors uppercase text-sm tracking-wide">
+                                        <button 
+                                            className="w-full py-3 border-2 border-red-100 text-red-600 font-bold rounded-xl hover:bg-red-50 hover:border-red-200 active:scale-95 transition-all duration-200 uppercase text-sm tracking-wide focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                                            onClick={() => window.open(WHATSAPP_CONFIG.getLink(), '_blank')}
+                                            aria-label={`Agregar ${item.name} al pedido`}
+                                        >
                                             Agregar al Pedido
                                         </button>
                                     </div>

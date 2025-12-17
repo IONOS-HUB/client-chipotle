@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingWhatsApp from './components/ui/FloatingWhatsApp';
+import ScrollToTop from './components/ui/ScrollToTop';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 
@@ -13,6 +14,7 @@ const App = () => {
     AOS.init({
       duration: 1000,
       once: true,
+      easing: 'ease-out-cubic',
     });
   }, []);
 
@@ -26,6 +28,7 @@ const App = () => {
         </Routes>
         <Footer />
         <FloatingWhatsApp />
+        <ScrollToTop />
       </div>
     </Router>
   );
