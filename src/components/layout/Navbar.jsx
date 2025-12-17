@@ -28,7 +28,7 @@ const Navbar = () => {
     const cardNavItems = [
         {
             label: "Historia",
-            bgColor: "#7F1D1D", // Dark red
+            bgColor: "#DC2626", 
             textColor: "#fff",
             links: [
                 { label: "Historia", href: "#historia", ariaLabel: "Nuestra Historia" }
@@ -36,7 +36,7 @@ const Navbar = () => {
         },
         {
             label: "Menú",
-            bgColor: "#991B1B", // Medium red
+            bgColor: "#DC2626", 
             textColor: "#fff",
             links: [
                 { label: "Menú", href: "#menu", ariaLabel: "Ver Menú" }
@@ -71,12 +71,13 @@ const Navbar = () => {
                 logoAlt="Logo El Chipotle"
                 items={cardNavItems}
                 baseColor="#fff"
-                menuColor="#7F1D1D"
+                menuColor="#fff"
                 buttonBgColor="#DC2626"
                 buttonTextColor="#fff"
                 ease="power3.out"
                 onLinkClick={handleNavClick}
                 onButtonClick={handleReservarClick}
+                brandName="El Chipotle"
             />
         </div>
     );
