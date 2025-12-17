@@ -1,24 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 
-// Styles for FAQ animation
-const styles = `
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-fadeIn {
-    animation: fadeIn 0.3s ease-out forwards;
-  }
-`;
-
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(null);
 
@@ -45,13 +27,14 @@ const FAQ = () => {
         }
     ];
 
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
+    const toggleFAQ = (index, e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setOpenIndex(prevIndex => prevIndex === index ? null : index);
     };
 
     return (
         <section id="faq" className="py-20 bg-stone-100">
-            <style>{styles}</style>
             <div className="container mx-auto px-4 max-w-3xl">
                 <div className="text-center mb-12">
                     <div
@@ -76,42 +59,52 @@ const FAQ = () => {
                 </div>
 
                 <div className="space-y-4">
-                    {faqs.map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`bg-white rounded-2xl overflow-hidden border transition-all duration-300 ${openIndex === index ? 'border-red-500 shadow-lg' : 'border-stone-200 hover:border-red-300'}`}
-                            data-aos="fade-up"
-                            data-aos-delay={200 + (index * 100)}
-                        >
-                            <button
-                                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-inset rounded-t-2xl transition-all hover:bg-stone-50"
-                                onClick={() => toggleFAQ(index)}
-                                aria-expanded={openIndex === index}
-                                aria-controls={`faq-answer-${index}`}
+                    {faqs.map((faq, index) => {
+                        const isOpen = openIndex === index;
+                        return (
+                            <div
+                                key={`faq-${index}`}
+                                className={`bg-white rounded-2xl border ${
+                                    isOpen ? 'border-red-500 shadow-lg' : 'border-stone-200 hover:border-red-300'
+                                }`}
                             >
-                                <span className={`font-bold text-lg ${openIndex === index ? 'text-red-700' : 'text-stone-800'}`}>
-                                    {faq.question}
-                                </span>
-                                {openIndex === index ? (
-                                    <ChevronUp className="text-red-500 flex-shrink-0" />
-                                ) : (
-                                    <ChevronDown className="text-stone-400 flex-shrink-0" />
-                                )}
-                            </button>
+                                <button
+                                    className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-inset rounded-t-2xl hover:bg-stone-50"
+                                    onClick={(e) => toggleFAQ(index, e)}
+                                    aria-expanded={isOpen}
+                                    aria-controls={`faq-answer-${index}`}
+                                    type="button"
+                                >
+                                    <span className={`font-bold text-lg ${
+                                        isOpen ? 'text-red-700' : 'text-stone-800'
+                                    }`}>
+                                        {faq.question}
+                                    </span>
+                                    <span className="shrink-0 ml-4">
+                                        {isOpen ? (
+                                            <ChevronUp className="text-red-500 w-5 h-5" />
+                                        ) : (
+                                            <ChevronDown className="text-stone-400 w-5 h-5" />
+                                        )}
+                                    </span>
+                                </button>
 
-                            {openIndex === index && (
                                 <div
                                     id={`faq-answer-${index}`}
-                                    className="px-6 pb-6 animate-fadeIn"
+                                    className="px-6 pb-6"
                                     role="region"
+                                    style={{
+                                        display: isOpen ? 'block' : 'none'
+                                    }}
+                                    aria-hidden={!isOpen}
                                 >
                                     <p className="text-stone-600 leading-relaxed">
                                         {faq.answer}
                                     </p>
                                 </div>
-                            )}
-                        </div>
-                    ))}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
