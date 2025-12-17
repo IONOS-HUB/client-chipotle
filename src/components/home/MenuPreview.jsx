@@ -40,7 +40,7 @@ const MenuPreview = () => {
                         data-aos="fade-up"
                         data-aos-delay="300"
                     >
-                        <div className="absolute top-0 left-0 w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-red-900 text-xs font-bold px-3 py-2 text-center uppercase tracking-widest z-20">★ El Más Vendido ★</div>
+                        <div className="absolute top-0 left-0 w-full bg-linear-to-r from-yellow-400 to-yellow-500 text-red-900 text-xs font-bold px-3 py-2 text-center uppercase tracking-widest z-20">★ El Más Vendido ★</div>
                         <div className="h-64 overflow-hidden relative mt-8">
                             <img src={IMAGES.steak} alt="Fajita de carne o pollo con pimientos y cebolla, servida con tortillas y guacamole" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                             <div className="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg font-bold shadow-lg">$7.00</div>

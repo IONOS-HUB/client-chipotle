@@ -4,8 +4,29 @@ import { ZoomIn, X, ChevronLeft, ChevronRight, Download } from 'lucide-react';
 import { MENU_IMAGES } from '../../utils/constants';
 
 const FullMenuGallery = () => {
+    const [selectedImage, setSelectedImage] = useState(null);
+    const currentIndex = selectedImage ? MENU_IMAGES.indexOf(selectedImage) : -1;
+
+    const openLightbox = (image) => {
+        setSelectedImage(image);
+    };
+
+    const closeLightbox = () => {
+        setSelectedImage(null);
+    };
+
+    const nextImage = () => {
+        const nextIndex = (currentIndex + 1) % MENU_IMAGES.length;
+        setSelectedImage(MENU_IMAGES[nextIndex]);
+    };
+
+    const prevImage = () => {
+        const prevIndex = (currentIndex - 1 + MENU_IMAGES.length) % MENU_IMAGES.length;
+        setSelectedImage(MENU_IMAGES[prevIndex]);
+    };
+
     return (
-        <section id="menu-completo" className="py-24 bg-gradient-to-b from-stone-50 to-white">
+        <section id="menu-completo" className="py-24 bg-linear-to-b from-stone-50 to-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <span
@@ -34,24 +55,48 @@ const FullMenuGallery = () => {
                         data-aos="fade-up"
                         data-aos-delay="300"
                     >
-                        Ver Menú Completo Digital
-                    </Link>
-                </div>
+                    Ver Menú Completo Digital
+                </Link>
+            </div>
 
-
-                {/* Lightbox Modal */}
-                {selectedImage && (
+            {/* Menu Images Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                {MENU_IMAGES.map((image, index) => (
                     <div
-                        className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-                        onClick={closeLightbox}
+                        key={index}
+                        className="relative group cursor-pointer overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                        onClick={() => openLightbox(image)}
+                        data-aos="fade-up"
+                        data-aos-delay={index * 100}
                     >
-                        <button
-                            className="absolute top-4 right-4 text-white hover:text-red-500 active:scale-95 transition-all z-10 p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                            onClick={closeLightbox}
-                            aria-label="Cerrar menú"
-                        >
-                            <X size={40} />
-                        </button>
+                        <img
+                            src={image}
+                            alt={`Menú de El Chipotle - Página ${index + 1}`}
+                            className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <div className="bg-white/90 p-4 rounded-full">
+                                <ZoomIn className="text-red-600 w-8 h-8" />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Lightbox Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+                    onClick={closeLightbox}
+                    >
+                    <button
+                        className="absolute top-4 right-4 text-white hover:text-red-500 active:scale-95 transition-all z-10 p-2 rounded-full hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                        onClick={closeLightbox}
+                        aria-label="Cerrar menú"
+                    >
+                        <X size={40} />
+                    </button>
 
                         {MENU_IMAGES.length > 1 && (
                             <>

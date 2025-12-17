@@ -33,7 +33,7 @@ const Gallery = () => {
                         data-aos="zoom-in"
                     >
                         <img src={IMAGES.steak} alt="Corte de carne T-Bone parrillero de El Chipotle, asado al carbón con chimichurri" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ const Gallery = () => {
                         data-aos-delay="200"
                     >
                         <img src={IMAGES.tacos} alt="Trío de tacos al pastor con piña asada, cebolla y cilantro de El Chipotle" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-red-900 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform">
+                        <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-red-900 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform">
                             <p className="text-center font-bold text-lg text-white">Burgers</p>
                         </div>
                     </div>
