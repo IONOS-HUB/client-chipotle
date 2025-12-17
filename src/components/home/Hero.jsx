@@ -8,15 +8,28 @@ const Hero = () => {
     <header className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-linear-to-b from-black/80 via-black/40 to-black/20 z-10"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/40 to-transparent z-10"></div>
         <img
           src={IMAGES.heroBg}
           alt="Parrilla con carne asada al carbón - El Chipotle restaurante mexicano"
           className="w-full h-full object-cover animate-pulse-slow scale-110"
+          style={{
+            maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 100%)"
+          }}
           draggable={false}
           loading="lazy"
         />
       </div>
+      
+      {/* Fade gradient at bottom */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-stone-50 to-transparent z-10 pointer-events-none"
+        style={{
+          maskImage: "linear-gradient(to top, black 60%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to top, black 60%, transparent 100%)"
+        }}
+      ></div>
 
       <div className="relative z-20 text-center px-3 sm:px-6 md:px-8 max-w-xl sm:max-w-3xl md:max-w-4xl mx-auto flex flex-col items-center">
         {/* Logo grande con fallback */}
