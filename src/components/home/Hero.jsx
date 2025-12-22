@@ -31,7 +31,7 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="relative z-20 text-center px-3 sm:px-6 md:px-8 max-w-xl sm:max-w-3xl md:max-w-4xl mx-auto flex flex-col items-center">
+      <div className="relative z-20 text-center px-3 sm:px-6 md:px-8 max-w-xl sm:max-w-3xl md:max-w-4xl mx-auto flex flex-col items-center pt-16">
         {/* Logo grande con fallback */}
         <div
           className="w-32 h-32 xs:w-40 xs:h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full shadow-2xl mb-6 sm:mb-8flex items-center justify-center overflow-hidden animate-bounce-slow"
