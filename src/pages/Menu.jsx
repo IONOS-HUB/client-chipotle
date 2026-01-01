@@ -56,11 +56,10 @@ const Menu = () => {
                     {/* Button Section */}
                         <a 
                             href="/"
-                            // className="relative z-10 inline-block bg-red-700 text-white font-bold text-xl px-10 py-4 rounded-full hover:bg-red-800 active:scale-95 transition-all duration-200 shadow-2xl"
-                            className="inline-block px-4 py-1 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg transition-all duration-300 mt-5"
+                            className="inline-block px-5 pt-0.1 pb-1 bg-red-600 text-white font-bold text-2xl md:text-3xl rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg transition-all duration-300 mt-5"
                             aria-label="Botón para regresar a la página principal"
                         >
-                            Regresar
+                            ←
                         </a>
                     
                     {/* Logo Section */}
@@ -85,14 +84,15 @@ const Menu = () => {
                             {MENU_ITEMS.find(cat => cat.category === "Cocina Mexicana")?.items.map((item) => (
                                 <div key={item.id} className="text-white">
                                     <div className="flex justify-between items-start mb-1">
-                                        <h3 className="font-bold text-lg md:text-xl text-green-400 uppercase">
+                                        {/*Estilo de texto para copiar a los demás */}
+                                        <h3 className="font-bold text-base md:text-lg text-green-400 uppercase">
                                             {item.name}
                                         </h3>
-                                        <span className="font-bold text-xl md:text-2xl text-green-400 ml-4 whitespace-nowrap">
+                                        <span className="font-bold text-lg md:text-xl text-green-400 ml-4 whitespace-nowrap">
                                             {item.price}
                                         </span>
                                     </div>
-                                    <p className="text-gray-200 text-sm md:text-base leading-relaxed">
+                                    <p className="text-gray-200 text-xs md:text-sm leading-relaxed">
                                         {item.description}
                                     </p>
                                 </div>
