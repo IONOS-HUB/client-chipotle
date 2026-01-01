@@ -53,9 +53,6 @@ const Navbar = () => {
             label: "Más",
             bgColor: "#DC2626", // Bright red
             textColor: "#fff",
-            // links: [
-            //     { label: "Más Información", href: "#ubicacion", ariaLabel: "Ver información del pie de página" }
-            // ]
             href: "#ubicacion"
         }
     ];

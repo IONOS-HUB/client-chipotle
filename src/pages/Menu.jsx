@@ -85,14 +85,14 @@ const Menu = () => {
                                 <div key={item.id} className="text-white">
                                     <div className="flex justify-between items-start mb-1">
                                         {/*Estilo de texto para copiar a los demás */}
-                                        <h3 className="font-bold text-base md:text-lg text-green-400 uppercase">
+                                        <h3 className="font-bold text-lg md:text-xl text-green-400 uppercase">
                                             {item.name}
                                         </h3>
-                                        <span className="font-bold text-lg md:text-xl text-green-400 ml-4 whitespace-nowrap">
+                                        <span className="font-bold text-xl md:text-2xl text-green-400 ml-4 whitespace-nowrap">
                                             {item.price}
                                         </span>
                                     </div>
-                                    <p className="text-gray-200 text-xs md:text-sm leading-relaxed">
+                                    <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                                         {item.description}
                                     </p>
                                 </div>

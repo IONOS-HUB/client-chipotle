@@ -331,7 +331,7 @@ const CardNav = ({
               className={`nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%] ${isMas ? 'hover:brightness-110' : 'cursor-default'}`}              
               ref={setCardRef(idx)}
               style={{ backgroundColor: item.bgColor, color: item.textColor, cursor: item.label === "Más" ? 'pointer' : 'default' }}
-              onClick={(e)=>isMas && onLinkClick && onLinkClick(e, item.href || item)} //Este se añadió
+              onClick={(e)=>isMas && onLinkClick && onLinkClick(e, item.href || item)}
             >
               <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                 {item.label}
