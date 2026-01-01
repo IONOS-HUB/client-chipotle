@@ -33,7 +33,8 @@ const Gallery = () => {
                         data-aos="zoom-in"
                     >
                         <img src={IMAGES.steak} alt="Corte de carne T-Bone parrillero de El Chipotle, asado al carbón con chimichurri" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="font-mexican text-lg text-white border-4 border-white px-5 py-2 rounded">Comida Mexicana</span>
                         </div>
                     </div>
 
@@ -55,8 +56,8 @@ const Gallery = () => {
                         data-aos-delay="200"
                     >
                         <img src={IMAGES.tacos} alt="Trío de tacos al pastor con piña asada, cebolla y cilantro de El Chipotle" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-red-900 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform">
-                            <p className="text-center font-bold text-lg text-white">Burgers</p>
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="font-mexican text-lg text-white border-4 border-white px-5 py-2 rounded">Hamburgesas</span>
                         </div>
                     </div>
 
@@ -66,28 +67,43 @@ const Gallery = () => {
                         data-aos-delay="300"
                     >
                         <img src={IMAGES.salad} alt="Ensalada especial de El Chipotle con mix de lechugas, aguacate y nueces" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute bottom-0 left-0 right-0 bg-yellow-500/90 p-2 transform translate-y-full group-hover:translate-y-0 transition-transform">
-                            <p className="text-center font-bold text-red-900 text-xs">Opciones Saludables</p>
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="font-mexican text-lg text-white border-4 border-white px-5 py-2 rounded">Opciones Saludables</span>
                         </div>
                     </div>
+                </div>
 
-                    <div
-                        className="lg:col-span-4 bg-yellow-500 rounded-xl flex flex-col md:flex-row items-center justify-between p-6 mt-3 transform hover:scale-[1.01] transition-transform shadow-xl"
-                        data-aos="fade-up"
-                    >
-                        <div className="mb-3 md:mb-0">
-                            <h3 className="font-mexican text-2xl text-red-900 mb-1">¿Se te antojó?</h3>
-                            <p className="text-red-800 font-medium text-sm">No te quedes con las ganas. ¡Estamos listos para atenderte!</p>
-                        </div>
+                <div
+                    className="lg:col-span-4 bg-yellow-500 rounded-xl flex flex-col md:grid md:grid-cols-3 items-center p-8 mt-3 transform hover:scale-[1.01] transition-transform shadow-xl relative"
+                    data-aos="fade-up">
+                    {/* Left Side: Text */}
+                    <div className="text-center md:text-left mb-12 md:mb-0 md:pl-10">
+                        <h3 className="font-mexican text-3xl text-red-900 mb-2">¿Se te antojó?</h3>
+                        <p className="text-red-800 font-medium text-lg">No te quedes con las ganas</p>
+                        <p className="text-red-800 font-medium text-lg">¡Estamos listos para atenderte!</p>
+                    </div>
+
+                    {/* Center Side: Button */}
+                    <div className="flex justify-center mb-12 md:mb-0 relative">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-32 bg-white blur-2xl rounded-full opacity-90"></div>
                         <a 
                             href={WHATSAPP_CONFIG.getLink()} 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="inline-block bg-red-700 text-white font-bold px-8 py-3 rounded-full hover:bg-red-800 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
+                            className="relative z-10 inline-block bg-red-700 text-white font-bold text-xl px-10 py-4 rounded-full hover:bg-red-800 active:scale-95 transition-all duration-200 shadow-2xl"
                             aria-label="Pedir ahora por WhatsApp"
                         >
                             ¡Pedir Ahora!
                         </a>
+                    </div>
+
+                    {/* Right Side: Logo */}
+                    <div className="flex justify-center md:justify-end items-center md:pr-10">
+                        <img 
+                            src={IMAGES.logo} // Asegúrate de que esta ruta sea la de tu logo circular
+                            alt="Logo de El Chipotle - Restaurante de comida mexicana y americana" 
+                            className="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-lg"
+                        />
                     </div>
                 </div>
             </div>

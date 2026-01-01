@@ -53,16 +53,7 @@ const Navbar = () => {
             label: "Más",
             bgColor: "#DC2626", // Bright red
             textColor: "#fff",
-            links: [
-                { label: "FAQ", href: "#faq", ariaLabel: "Preguntas Frecuentes" },
-                { label: "Ubicación", href: "#ubicacion", ariaLabel: "Nuestra Ubicación" },
-                { 
-                    label: "Reservar", 
-                    href: WHATSAPP_CONFIG.getLink(), 
-                    ariaLabel: "Reservar por WhatsApp",
-                    external: true
-                }
-            ]
+            href: "#ubicacion"
         }
     ];
 

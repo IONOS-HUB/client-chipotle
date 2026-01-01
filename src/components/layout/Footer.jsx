@@ -132,7 +132,6 @@ const Footer = () => {
 
                 <div className="border-t border-stone-800 pt-8 text-center text-stone-500 text-sm">
                     <p>&copy; 2025 El Chipotle. Todos los derechos reservados. Diseñado con sabor 🌶️</p>
-                    <p>&copy; 2025 El Chipotle. Todos los derechos reservados. Diseñado con sabor 🌶️</p>
                 </div>
             </div>
         </footer>
