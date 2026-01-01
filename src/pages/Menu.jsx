@@ -53,6 +53,16 @@ const Menu = () => {
                 </div>
                 
                 <div className="container mx-auto px-4 max-w-5xl ">
+                    {/* Button Section */}
+                        <a 
+                            href="/"
+                            // className="relative z-10 inline-block bg-red-700 text-white font-bold text-xl px-10 py-4 rounded-full hover:bg-red-800 active:scale-95 transition-all duration-200 shadow-2xl"
+                            className="inline-block px-4 py-1 bg-red-600 text-white rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg transition-all duration-300 mt-5"
+                            aria-label="Botón para regresar a la página principal"
+                        >
+                            Regresar
+                        </a>
+                    
                     {/* Logo Section */}
                     <div className="flex flex-col items-center mb-12">
                         <div className="relative mb-6">
