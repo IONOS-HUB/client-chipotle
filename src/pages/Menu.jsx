@@ -53,6 +53,15 @@ const Menu = () => {
                 </div>
                 
                 <div className="container mx-auto px-4 max-w-5xl ">
+                    {/* Button Section */}
+                        <a 
+                            href="/"
+                            className="inline-block px-5 pt-0.1 pb-1 bg-red-600 text-white font-bold text-2xl md:text-3xl rounded-lg shadow-md hover:bg-red-700 hover:shadow-lg transition-all duration-300 mt-5"
+                            aria-label="Botón para regresar a la página principal"
+                        >
+                            ←
+                        </a>
+                    
                     {/* Logo Section */}
                     <div className="flex flex-col items-center mb-12">
                         <div className="relative mb-6">
@@ -75,6 +84,7 @@ const Menu = () => {
                             {MENU_ITEMS.find(cat => cat.category === "Cocina Mexicana")?.items.map((item) => (
                                 <div key={item.id} className="text-white">
                                     <div className="flex justify-between items-start mb-1">
+                                        {/*Estilo de texto para copiar a los demás */}
                                         <h3 className="font-bold text-lg md:text-xl text-green-400 uppercase">
                                             {item.name}
                                         </h3>

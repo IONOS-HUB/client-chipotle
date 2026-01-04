@@ -26,34 +26,37 @@ const CardNav = ({
 
   // Cerrar el menú cuando cambia la ruta y reinicializar timeline
   useEffect(() => {
-    if (isExpanded || isHamburgerOpen) {
-      // Reset inmediato de estados
-      setIsHamburgerOpen(false);
-      setIsExpanded(false);
-      
-      // Reset visual inmediato
-      if (navRef.current) {
-        gsap.set(navRef.current, { height: 60, overflow: "hidden" });
-      }
-      if (cardsRef.current.length) {
-        gsap.set(cardsRef.current, { y: 50, opacity: 0 });
-      }
-      
-      // Kill timeline anterior
-      if (tlRef.current) {
-        tlRef.current.kill();
-      }
+    // Reset inmediato de estados
+    setIsHamburgerOpen(false);
+    setIsExpanded(false);
+    
+    // Reset visual inmediato
+    if (navRef.current) {
+      gsap.set(navRef.current, { height: 60, overflow: "hidden" });
+    }
+    if (cardsRef.current.length) {
+      gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    }
+    
+    // Kill timeline anterior
+    if (tlRef.current) {
+      tlRef.current.kill();
+      tlRef.current = null;
     }
     
     // Reinicializar timeline después de cambiar de página
     const timer = setTimeout(() => {
-      if (navRef.current) {
+      if (navRef.current && cardsRef.current.length > 0) {
         const tl = createTimeline();
-        tlRef.current = tl;
+        if (tl) {
+          tlRef.current = tl;
+        }
       }
-    }, 100);
+    }, 150);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
@@ -138,8 +141,24 @@ const CardNav = ({
   useLayoutEffect(() => {
     // Wait for cards to be rendered
     const timer = setTimeout(() => {
-      const tl = createTimeline();
-      tlRef.current = tl;
+      // Verificar que los refs estén listos
+      if (navRef.current && cardsRef.current.length > 0) {
+        const tl = createTimeline();
+        if (tl) {
+          tlRef.current = tl;
+        }
+      } else {
+        // Si los refs no están listos, intentar de nuevo
+        const retryTimer = setTimeout(() => {
+          if (navRef.current && cardsRef.current.length > 0) {
+            const tl = createTimeline();
+            if (tl) {
+              tlRef.current = tl;
+            }
+          }
+        }, 100);
+        return () => clearTimeout(retryTimer);
+      }
     }, 0);
 
     return () => {
@@ -188,7 +207,14 @@ const CardNav = ({
       setTimeout(() => {
         // Asegurarse de que los refs estén actualizados
         const navEl = navRef.current;
-        if (!navEl) return;
+        if (!navEl || cardsRef.current.length === 0) {
+          return;
+        }
+        
+        // Siempre recrear el timeline al abrir para asegurar que esté actualizado
+        if (tlRef.current) {
+          tlRef.current.kill();
+        }
         
         const tl = createTimeline();
         if (tl) {
@@ -197,10 +223,12 @@ const CardNav = ({
         } else {
           // Si no se puede crear el timeline, intentar de nuevo
           setTimeout(() => {
-            const retryTl = createTimeline();
-            if (retryTl) {
-              tlRef.current = retryTl;
-              retryTl.play(0);
+            if (navRef.current && cardsRef.current.length > 0) {
+              const retryTl = createTimeline();
+              if (retryTl) {
+                tlRef.current = retryTl;
+                retryTl.play(0);
+              }
             }
           }, 50);
         }
@@ -322,17 +350,21 @@ const CardNav = ({
           } md:flex-row md:items-end md:gap-[12px]`}
           aria-hidden={!isExpanded}
         >
-          {(items || []).slice(0, 3).map((item, idx) => (
+          {(items || []).slice(0, 3).map((item, idx) => {
+            const isMas = item.label === "Más";
+            
+            return (
             <div
               key={`${item.label}-${idx}`}
-              className="nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%]"
+              className={`nav-card select-none relative flex flex-col gap-2 p-[12px_16px] rounded-[calc(0.75rem-0.2rem)] min-w-0 flex-[1_1_auto] h-auto min-h-[60px] md:h-full md:min-h-0 md:flex-[1_1_0%] ${isMas ? 'hover:brightness-110' : 'cursor-default'}`}              
               ref={setCardRef(idx)}
-              style={{ backgroundColor: item.bgColor, color: item.textColor }}
+              style={{ backgroundColor: item.bgColor, color: item.textColor, cursor: item.label === "Más" ? 'pointer' : 'default' }}
+              onClick={(e)=>isMas && onLinkClick && onLinkClick(e, item.href || item)}
             >
               <div className="nav-card-label font-normal tracking-[-0.5px] text-[18px] md:text-[22px]">
                 {item.label}
               </div>
-              <div className="nav-card-links mt-auto flex flex-col gap-[2px]">
+              <div className="nav-card-links mt-auto flex flex-col gap-[2px]" onClick={(e) => e.stopPropagation()}>
                 {item.links?.map((lnk, i) => (
                   <a
                     key={`${lnk.label}-${i}`}
@@ -353,7 +385,8 @@ const CardNav = ({
                 ))}
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </nav>
     </div>
