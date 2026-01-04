@@ -26,34 +26,37 @@ const CardNav = ({
 
   // Cerrar el menú cuando cambia la ruta y reinicializar timeline
   useEffect(() => {
-    if (isExpanded || isHamburgerOpen) {
-      // Reset inmediato de estados
-      setIsHamburgerOpen(false);
-      setIsExpanded(false);
-      
-      // Reset visual inmediato
-      if (navRef.current) {
-        gsap.set(navRef.current, { height: 60, overflow: "hidden" });
-      }
-      if (cardsRef.current.length) {
-        gsap.set(cardsRef.current, { y: 50, opacity: 0 });
-      }
-      
-      // Kill timeline anterior
-      if (tlRef.current) {
-        tlRef.current.kill();
-      }
+    // Reset inmediato de estados
+    setIsHamburgerOpen(false);
+    setIsExpanded(false);
+    
+    // Reset visual inmediato
+    if (navRef.current) {
+      gsap.set(navRef.current, { height: 60, overflow: "hidden" });
+    }
+    if (cardsRef.current.length) {
+      gsap.set(cardsRef.current, { y: 50, opacity: 0 });
+    }
+    
+    // Kill timeline anterior
+    if (tlRef.current) {
+      tlRef.current.kill();
+      tlRef.current = null;
     }
     
     // Reinicializar timeline después de cambiar de página
     const timer = setTimeout(() => {
-      if (navRef.current) {
+      if (navRef.current && cardsRef.current.length > 0) {
         const tl = createTimeline();
-        tlRef.current = tl;
+        if (tl) {
+          tlRef.current = tl;
+        }
       }
-    }, 100);
+    }, 150);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
@@ -138,8 +141,24 @@ const CardNav = ({
   useLayoutEffect(() => {
     // Wait for cards to be rendered
     const timer = setTimeout(() => {
-      const tl = createTimeline();
-      tlRef.current = tl;
+      // Verificar que los refs estén listos
+      if (navRef.current && cardsRef.current.length > 0) {
+        const tl = createTimeline();
+        if (tl) {
+          tlRef.current = tl;
+        }
+      } else {
+        // Si los refs no están listos, intentar de nuevo
+        const retryTimer = setTimeout(() => {
+          if (navRef.current && cardsRef.current.length > 0) {
+            const tl = createTimeline();
+            if (tl) {
+              tlRef.current = tl;
+            }
+          }
+        }, 100);
+        return () => clearTimeout(retryTimer);
+      }
     }, 0);
 
     return () => {
@@ -188,7 +207,14 @@ const CardNav = ({
       setTimeout(() => {
         // Asegurarse de que los refs estén actualizados
         const navEl = navRef.current;
-        if (!navEl) return;
+        if (!navEl || cardsRef.current.length === 0) {
+          return;
+        }
+        
+        // Siempre recrear el timeline al abrir para asegurar que esté actualizado
+        if (tlRef.current) {
+          tlRef.current.kill();
+        }
         
         const tl = createTimeline();
         if (tl) {
@@ -197,10 +223,12 @@ const CardNav = ({
         } else {
           // Si no se puede crear el timeline, intentar de nuevo
           setTimeout(() => {
-            const retryTl = createTimeline();
-            if (retryTl) {
-              tlRef.current = retryTl;
-              retryTl.play(0);
+            if (navRef.current && cardsRef.current.length > 0) {
+              const retryTl = createTimeline();
+              if (retryTl) {
+                tlRef.current = retryTl;
+                retryTl.play(0);
+              }
             }
           }, 50);
         }
