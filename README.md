@@ -4,7 +4,7 @@
 
 ## 📋 Descripción
 
-**El Chipotle** es una aplicación web moderna y elegante para un restaurante de comida mexicana y americana. El sitio web presenta un diseño atractivo, animaciones suaves y una experiencia de usuario excepcional.
+**El Chipotle** es una aplicación web moderna y elegante para un restaurante de comida mexicana y americana ubicado en **Ibarra, Ecuador**. El sitio web presenta un diseño atractivo, animaciones suaves, SEO optimizado y una experiencia de usuario excepcional.
 
 ## ✨ Características Principales
 
@@ -162,7 +162,8 @@ el-chipotle/
 ## 📞 Contacto
 
 - **WhatsApp**: +593 99 940 2348
-- **Dirección**: Av. Rafael Sanchez y José Miguel Leoro
+- **Dirección**: Av. Rafael Sanchez y José Miguel Leoro, Ibarra, Imbabura, Ecuador
+- **Ciudad**: Ibarra, Ecuador
 - **Horarios**:
   - Lunes - Jueves: 12:00 PM - 10:00 PM
   - Viernes - Sábado: 12:00 PM - 12:00 AM
@@ -183,10 +184,75 @@ el-chipotle/
 - Semántica HTML5
 
 ### SEO
-- Meta tags optimizados
-- Estructura de headings correcta
-- URLs amigables
-- Sitemap (próximamente)
+- **Meta tags optimizados** para Ibarra, Ecuador
+  - Title tags únicos por página
+  - Meta descriptions descriptivas
+  - Keywords locales (Ibarra, Imbabura, Ecuador)
+- **Open Graph tags** completos para redes sociales
+  - Facebook optimizado
+  - Twitter Cards implementadas
+- **Schema.org (JSON-LD)** implementado
+  - Restaurant Schema con información detallada
+  - LocalBusiness markup
+  - Breadcrumb navigation
+  - Horarios de apertura estructurados
+  - Información geográfica (coordenadas de Ibarra)
+- **Geolocalización SEO**
+  - Meta tags de ubicación (EC-I para Imbabura)
+  - Coordenadas GPS de Ibarra
+  - Información de región y ciudad
+- **Sitemap.xml** actualizado con todas las URLs
+- **Robots.txt** configurado correctamente
+- **URLs canónicas** implementadas
+- **Estructura semántica HTML5**
+- **Optimización para búsquedas locales**
+  - "restaurante mexicano Ibarra"
+  - "comida mexicana Ecuador"
+  - "mejor restaurante Imbabura"
+
+## 🔍 Verificación del SEO
+
+### Herramientas Recomendadas
+
+Para verificar que el SEO esté funcionando correctamente, puedes usar:
+
+1. **Google Search Console**
+   - Verificar el sitio web
+   - Subir el sitemap.xml
+   - Monitorear el rendimiento en búsquedas
+
+2. **Google Rich Results Test**
+   - URL: https://search.google.com/test/rich-results
+   - Verifica que los datos estructurados estén correctos
+
+3. **Facebook Sharing Debugger**
+   - URL: https://developers.facebook.com/tools/debug/
+   - Verifica los Open Graph tags
+
+4. **Twitter Card Validator**
+   - URL: https://cards-dev.twitter.com/validator
+   - Verifica las Twitter Cards
+
+5. **Google PageSpeed Insights**
+   - URL: https://pagespeed.web.dev/
+   - Verifica el rendimiento y Core Web Vitals
+
+### Archivos SEO Implementados
+
+- ✅ `index.html` - Meta tags completos y Schema.org
+- ✅ `src/components/seo/SEO.jsx` - Componente SEO dinámico
+- ✅ `public/sitemap.xml` - Sitemap actualizado
+- ✅ `public/robots.txt` - Configuración de robots
+- ✅ `SEO.md` - Documentación completa de SEO
+
+### Información de Ubicación
+
+- **Ciudad**: Ibarra, Imbabura
+- **País**: Ecuador
+- **Coordenadas**: 0.3476, -78.1233
+- **Código de región**: EC-I
+
+Para más detalles sobre la implementación SEO, consulta el archivo `SEO.md`.
 
 ## 📝 Licencia
 

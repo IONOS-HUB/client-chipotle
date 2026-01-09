@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Página Principal -->
   <url>
-    <loc>https://elchipotle.com/</loc>
-    <lastmod>2024-12-17</lastmod>
+    <loc>https://www.chipotleibarra.com/</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.chipotleibarra.com/logo/logo.png</image:loc>
+      <image:title>El Chipotle Ibarra - Restaurante Mexicano</image:title>
+      <image:caption>Logo de El Chipotle, restaurante de comida mexicana y americana en Ibarra, Ecuador</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Página de Menú -->
   <url>
-    <loc>https://elchipotle.com/menu</loc>
-    <lastmod>2024-12-17</lastmod>
+    <loc>https://www.chipotleibarra.com/menu</loc>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.chipotleibarra.com/menu/menu.png</image:loc>
+      <image:title>Menú El Chipotle Ibarra</image:title>
+      <image:caption>Menú completo de El Chipotle con tacos, burgers, parrilladas y más</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.chipotleibarra.com/menu/menu2.png</image:loc>
+      <image:title>Menú El Chipotle Ibarra - Página 2</image:title>
+      <image:caption>Segunda página del menú de El Chipotle</image:caption>
+    </image:image>
   </url>
+  
 </urlset>
 

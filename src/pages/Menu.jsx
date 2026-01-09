@@ -6,10 +6,10 @@ const Menu = () => {
     return (
         <>
             <SEO 
-                title="Menú Completo - El Chipotle | Comida Mexicana y Americana"
-                description="Explora nuestro menú completo con tacos, burritos, enchiladas, carnes, postres y más. Precios y descripciones de todos nuestros platillos. Pedidos por WhatsApp."
-                keywords="menú El Chipotle, carta restaurante, precios comida mexicana, tacos, burritos, enchiladas, carnes, postres, pedidos online"
-                url="https://elchipotle.com/menu"
+                title="Menú Completo - El Chipotle Ibarra | Comida Mexicana y Americana"
+                description="Explora nuestro menú completo en Ibarra con tacos, burritos, enchiladas, burgers, carnes, postres y más de 20 salsas caseras. Precios y descripciones de todos nuestros platillos. Pedidos por WhatsApp al +593 99 940 2348."
+                keywords="menú El Chipotle Ibarra, carta restaurante Ibarra, precios comida mexicana, tacos Ibarra, burritos Ibarra, enchiladas, carnes, postres, pedidos online Ibarra, menú restaurante Ecuador"
+                url="https://www.chipotleibarra.com/menu"
             />
             <div className="pt-32 pb-20 bg-green-900 min-h-screen">
                 {/* Decorative Top Border - Papel Picado */}

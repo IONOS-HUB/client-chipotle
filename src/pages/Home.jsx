@@ -11,10 +11,10 @@ const Home = () => {
     return (
         <>
             <SEO 
-                title="El Chipotle - Auténtica Comida Mexicana y Americana | Restaurante"
-                description="El Chipotle ofrece auténtica comida mexicana y americana. Disfruta de nuestros tacos, burgers, parrilladas y más. Ubicados en Av. Rafael Sanchez y José Miguel Leoro. Pedidos por WhatsApp."
-                keywords="restaurante mexicano, comida mexicana, tacos, burgers, parrillada, El Chipotle, comida americana, restaurante Ecuador, pedidos comida"
-                url="https://elchipotle.com"
+                title="El Chipotle Ibarra - Auténtica Comida Mexicana y Americana | Restaurante en Ecuador"
+                description="El Chipotle en Ibarra, Ecuador ofrece auténtica comida mexicana y americana. Disfruta de nuestros tacos, burgers, parrilladas y más de 20 salsas caseras. Ubicados en Av. Rafael Sanchez y José Miguel Leoro, Ibarra. ¡Ordena por WhatsApp al +593 99 940 2348!"
+                keywords="restaurante mexicano Ibarra, comida mexicana Ibarra, tacos Ibarra, burgers Ibarra, parrillada Ibarra, El Chipotle, comida americana Ibarra, restaurante Ecuador, pedidos comida Ibarra, comida mexicana Ecuador, restaurante Imbabura, mejor restaurante Ibarra"
+                url="https://www.chipotleibarra.com/"
             />
             <main>
                 <Hero />

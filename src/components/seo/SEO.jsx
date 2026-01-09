@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 const SEO = ({ 
-  title = 'El Chipotle - Auténtica Comida Mexicana y Americana',
-  description = 'El Chipotle ofrece auténtica comida mexicana y americana. Disfruta de nuestros tacos, burgers, parrilladas y más.',
-  keywords = 'restaurante mexicano, comida mexicana, tacos, burgers, parrillada, El Chipotle',
-  image = '/logo/logo.jpg',
+  title = 'El Chipotle - Auténtica Comida Mexicana y Americana en Ibarra | Restaurante',
+  description = 'El Chipotle en Ibarra, Ecuador ofrece auténtica comida mexicana y americana. Disfruta de nuestros tacos, burgers, parrilladas y más de 20 salsas caseras. Ubicados en Av. Rafael Sanchez y José Miguel Leoro. ¡Ordena por WhatsApp!',
+  keywords = 'restaurante mexicano Ibarra, comida mexicana Ibarra, tacos Ibarra, burgers Ibarra, parrillada Ibarra, El Chipotle, comida americana Ibarra, restaurante Ecuador, pedidos comida Ibarra, comida mexicana Ecuador, restaurante Imbabura',
+  image = '/logo/logo.png',
   url = 'https://www.chipotleibarra.com/',
   type = 'website'
 }) => {
@@ -28,19 +28,36 @@ const SEO = ({
     updateMetaTag('title', title);
     updateMetaTag('description', description);
     updateMetaTag('keywords', keywords);
+    updateMetaTag('author', 'El Chipotle Ibarra');
+    updateMetaTag('robots', 'index, follow');
+    updateMetaTag('language', 'Spanish');
+    updateMetaTag('revisit-after', '7 days');
+    
+    // Geographic meta tags
+    updateMetaTag('geo.region', 'EC-I'); // Ecuador - Imbabura
+    updateMetaTag('geo.placename', 'Ibarra');
+    updateMetaTag('geo.position', '0.3476;-78.1233'); // Coordenadas aproximadas de Ibarra
+    updateMetaTag('ICBM', '0.3476, -78.1233');
     
     // Open Graph tags
     updateMetaTag('og:title', title, true);
     updateMetaTag('og:description', description, true);
     updateMetaTag('og:image', image, true);
     updateMetaTag('og:url', url, true);
-    updateMetaTag('og:type', type, true);
+    updateMetaTag('og:type', 'restaurant', true);
+    updateMetaTag('og:locale', 'es_EC', true);
+    updateMetaTag('og:site_name', 'El Chipotle Ibarra', true);
+    updateMetaTag('og:street-address', 'Av. Rafael Sanchez y José Miguel Leoro', true);
+    updateMetaTag('og:locality', 'Ibarra', true);
+    updateMetaTag('og:region', 'Imbabura', true);
+    updateMetaTag('og:country-name', 'Ecuador', true);
+    updateMetaTag('og:phone_number', '+593999402348', true);
     
     // Twitter Card tags
-    updateMetaTag('twitter:card', 'summary_large_image', true);
-    updateMetaTag('twitter:title', title, true);
-    updateMetaTag('twitter:description', description, true);
-    updateMetaTag('twitter:image', image, true);
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updateMetaTag('twitter:title', title);
+    updateMetaTag('twitter:description', description);
+    updateMetaTag('twitter:image', image);
     
     // Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
