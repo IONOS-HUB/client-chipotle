@@ -130,8 +130,19 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-stone-800 pt-8 text-center text-stone-500 text-sm">
-                    <p>&copy; 2025 El Chipotle. Todos los derechos reservados. Diseñado con sabor 🌶️</p>
+                {/* Copyright y Desarrollo */}
+                <div className="border-t border-stone-800 pt-8 flex flex-col items-center gap-2 text-center text-stone-500 text-sm">
+                    <p>&copy; {new Date().getFullYear()} El Chipotle. Todos los derechos reservados. Diseñado con sabor 🌶️</p>
+                    <p>
+                        Diseño y desarrollo:{" "}
+                        <a
+                            href="https://ionoshub.net/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-stone-400 hover:text-yellow-400 transition-colors"
+                        >
+                            IONOS HUB                        </a>
+                    </p>
                 </div>
             </div>
         </footer>
